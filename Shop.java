@@ -6,8 +6,8 @@ package example.codeclan.com.shop;
 
 public class Shop {
 
-    int transaction;
-    int refund;
+    private int transaction;
+    private int refund;
 
     public Shop() {
         transaction = 0;
@@ -35,15 +35,21 @@ public class Shop {
         return income;
     }
 
-
-    public void sell(Product product){
-        int income = product.getPrice();
-        setTransaction(income);
+    public String sell(Product product, int amount){
+        int price = product.getPrice();
+        if(amount > product.getStock()){
+           return "Not enough products in stock";
+        }else{
+            product.setStock(product.getStock() - amount);
+            setTransaction(price*amount);
+            return "Transaction complete";
+        }
     }
 
     public void acceptRefund(Product product) {
         int refund = product.getPrice();
         setRefunds(refund);
+        product.setStock(product.getStock() +1);
     }
 
     @Override
