@@ -5,4 +5,5 @@ package example.codeclan.com.shop;
  */
 
 public interface PaymentMethod {
+
 }

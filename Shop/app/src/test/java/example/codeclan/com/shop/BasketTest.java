@@ -17,9 +17,9 @@ public class BasketTest {
 
     @Before
     public void before(){
-        product = new Product(30, 2);
-        product2 = new Product(25, 5);
-        product3 = new Product(45, 1);
+        product = new Product(30.00, 2);
+        product2 = new Product(25.00, 5);
+        product3 = new Product(45.00, 1);
         basket = new Basket();
     }
 
@@ -43,7 +43,7 @@ public class BasketTest {
         basket.add(product);
         basket.add(product2);
         basket.add(product3);
-        assertEquals(100, basket.getTotalPrice());
+        assertEquals(100.00, basket.getTotalPrice(), 0.1);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class BasketTest {
         basket.add(product2);
         basket.remove(1);
         basket.add(product);
-        assertEquals(85, basket.getTotalPrice());
+        assertEquals(85.00, basket.getTotalPrice(), 0.1);
 
     }
 }

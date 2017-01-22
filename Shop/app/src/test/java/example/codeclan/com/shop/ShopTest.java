@@ -19,27 +19,27 @@ public class ShopTest{
     @Before
     public void before(){
         shop = new Shop();
-        product = new Product(20, 5);
-        product2 = new Product(30, 4);
+        product = new Product(20.00, 5);
+        product2 = new Product(30.00, 4);
         transaction = new Transaction();
     }
 
     @Test
     public void shopHasTransactionValue(){
-        assertEquals(0, shop.getTransactionValue());
+        assertEquals(0.0, shop.getTransactionValue(), 0.1);
     }
 
     @Test
     public void shopHasIncomeAfterSales(){
         shop.sell(product, 1);
-        assertEquals(20, shop.getTransactionValue());
+        assertEquals(20.00, shop.getTransactionValue(), 0.1);
     }
 
     @Test
     public void shopHasUpdatesTransactionValueAfterSalesP2(){
         shop.sell(product, 5);
         shop.sell(product2, 1);
-        assertEquals(130, shop.getTransactionValue());
+        assertEquals(130.00, shop.getTransactionValue(), 0.1);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class ShopTest{
         shop.sell(product, 1);
         shop.sell(product2, 1);
         shop.acceptRefund(product);
-        assertEquals(20, shop.getRefundsValue());
+        assertEquals(20.00, shop.getRefundsValue(), 0.1);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class ShopTest{
         shop.sell(product, 2);
         shop.sell(product2, 2);
         shop.acceptRefund(product);
-        assertEquals(80, shop.getIncome());
+        assertEquals(80.00, shop.getIncome(), 0.1);
     }
 
     @Test

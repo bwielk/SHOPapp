@@ -9,23 +9,22 @@ import java.util.HashMap;
 
 public class Customer {
 
-    public Basket basket;
-    public ArrayList<Transaction> transactions;
-    public HashMap<PaymentMethod, Double> wallet;
-    public DebitCard debitCard;
-    public CreditCard creditCard;
-
+    private Basket basket;
+    private ArrayList<Transaction> transactions;
+    private HashMap<PaymentMethod, Double> wallet;
 
     public Customer() {
-        basket = new Basket();
+        this.basket = new Basket();
         transactions = new ArrayList<Transaction>();
-        wallet = new HashMap<PaymentMethod, Double>();
-        wallet.put(debitCard = new DebitCard(), 0.0);
-        wallet.put(creditCard = new CreditCard(), 0.0);
+        this.wallet = new HashMap<PaymentMethod, Double >();
     }
 
     public void addItem(Product product){
         basket.add(product);
+    }
+
+    public void setWallet(PaymentMethod card, Double funds){
+        wallet.put(card, funds);
     }
 
     public void putBack(int index){
@@ -44,8 +43,42 @@ public class Customer {
         return basket.getItem(index);
     }
 
-    public void pay(){
+    public HashMap<PaymentMethod, Double> getCards(){
+        return this.wallet;
+    }
 
+    public void setFunds(PaymentMethod card, Double funds){
+        wallet.put(card, funds);
+    }
+
+    public Double getFunds(PaymentMethod card){
+        Double funds = wallet.get(card); //getting a value of the card
+        return funds;
+    }
+
+
+    public Double getTotalFunds(){
+        Double total = 0.0;
+        HashMap<PaymentMethod, Double> cards = getCards();
+        for( Double funds : cards.values()){ //cards.values() = an "arrayish" Collection of values
+            total += funds;
+        }
+        return total;
+    }
+
+    public String pay(PaymentMethod card) {
+        if (getFunds(card) < basket.getTotalPrice()) {
+            return "Not enough funds on your card! Try again";
+        } else {
+            Double fundsLeft = getFunds(card) - basket.getTotalPrice();
+            setFunds(card, fundsLeft);
+            basket.empty();
+            return "Transaction complete!";
+        }
+    }
+
+    public String receiveRefund(PaymentMethod card, Transaction transaction){
+        
     }
 
 }

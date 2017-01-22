@@ -40,8 +40,8 @@ public class Basket {
         return basket.get(index);
     }
 
-    public int getTotalPrice(){
-        int total = 0;
+    public Double getTotalPrice(){
+        Double total = 0.0;
         for(Product product : basket){
             total += product.getPrice();
         }

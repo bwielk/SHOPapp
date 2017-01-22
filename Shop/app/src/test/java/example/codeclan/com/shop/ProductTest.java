@@ -14,11 +14,11 @@ public class ProductTest {
 
     @Before
     public void before(){
-        product = new Product(30, 5);
+        product = new Product(30.00, 5);
     }
 
     @Test
-    public void cachCheckTheStock(){
+    public void canCheckTheStock(){
         assertEquals(5, product.getStock());
     }
 

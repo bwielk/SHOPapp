@@ -15,14 +15,20 @@ public class CustomerTest {
     private Product product2;
     private Product product3;
     private Basket basket;
+    private CreditCard card1;
+    private DebitCard card2;
 
     @Before
     public void before(){
         customer = new Customer();
-        product = new Product(30, 2);
-        product2 = new Product(25, 1);
-        product3 = new Product(10, 3);
+        product = new Product(30.00, 2);
+        product2 = new Product(25.00, 1);
+        product3 = new Product(10.00, 3);
         basket = new Basket();
+        card1 = new CreditCard();
+        card2 = new DebitCard();
+        customer.setWallet(card1, 130.00);
+        customer.setWallet(card2, 125.00);
     }
 
     @Test
@@ -46,7 +52,7 @@ public class CustomerTest {
         customer.addItem(product2);
         customer.putBack(1);
         Product example = customer.getItem(0);
-        assertEquals(30, example.getPrice());
+        assertEquals(30.00, example.getPrice(), 0.1);
     }
 
     @Test
@@ -55,7 +61,34 @@ public class CustomerTest {
         customer.addItem(product2);
         customer.addItem(product3);
         customer.putBack(0);
-        Product example = customer.getItem(1);
-        assertEquals(10, example.getPrice());
+        Product example1 = customer.getItem(1);
+        assertEquals(10.00, example1.getPrice(),0.1);
     }
-}
+
+    @Test
+    public void canGetTotalFunds(){
+        Double total = customer.getTotalFunds();
+        assertEquals(255.00, total, 0.1);
+    }
+
+    @Test
+    public void canGetFundsOfAPArticularCard(){
+        Double funds = customer.getFunds(card1);
+        assertEquals(130.00, funds, 0.1);
+    }
+
+    @Test
+    public void CanChangeFunds(){
+        customer.setFunds(card1, 100.00);
+        assertEquals(100.00, customer.getFunds(card1), 0.1);
+    }
+
+    @Test
+    public void canPayForItemsInBasket1(){
+        customer.addItem(product);
+        customer.addItem(product2);
+        customer.pay(card1);
+        assertEquals(75.00, customer.getFunds(card1), 0.1);
+    }
+
+    }

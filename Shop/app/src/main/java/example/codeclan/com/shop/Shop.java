@@ -6,48 +6,49 @@ package example.codeclan.com.shop;
 
 public class Shop {
 
-    private int transaction;
-    private int refund;
+    private Double transaction;
+    private Double refund;
 
     public Shop() {
-        transaction = 0;
-        refund = 0;
+        transaction = 0.0;
+        refund = 0.0;
     }
 
-    public int getTransactionValue() {
+    public Double getTransactionValue() {
         return transaction;
     }
 
-    public void setTransaction(int value) {
+    public void setTransaction(Double value) {
         transaction += value;
     }
 
-    public int getRefundsValue(){
+    public Double getRefundsValue(){
         return refund;
     }
 
-    public void setRefunds(int value){
+    public void setRefunds(Double value){
         refund += value;
     }
 
-    public int getIncome(){
-        int income = transaction - refund;
+    public Double getIncome(){
+        Double income = transaction - refund;
         return income;
     }
 
     public String sell(Product product, int amount){
-        int price = product.getPrice();
+        Double price = product.getPrice();
         if(amount > product.getStock()){
            return "Not enough products in stock";
         }else{
             product.setStock(product.getStock() - amount);
-            setTransaction(price*amount);
+            Double x = (Double)(price*amount);
+            setTransaction(x);
             return "Transaction complete";
         }
     }
 
     public void acceptRefund(Product product) {
-        int refund = product.getPrice();
+        Double refund = product.getPrice();
         setRefunds(refund);
         product.setStock(product.getStock() +1);
     }

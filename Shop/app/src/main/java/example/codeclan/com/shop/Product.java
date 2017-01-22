@@ -6,15 +6,15 @@ package example.codeclan.com.shop;
 
 public class Product {
 
-    int price;
+    Double price;
     int stock;
 
-    public Product(int price, int stock){
+    public Product(Double price, int stock){
         this.price = price;
         this.stock = stock;
     }
 
-    public int getPrice(){
+    public Double getPrice(){
         return this.price;
     }
 
