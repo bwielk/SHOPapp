@@ -11,18 +11,15 @@ import static org.junit.Assert.*;
 public class ProductTest {
 
     Product product;
-    Shop shop;
 
     @Before
     public void before(){
         product = new Product(30, 5);
-        shop = new Shop();
     }
 
     @Test
     public void cachCheckTheStock(){
         assertEquals(5, product.getStock());
     }
-
 
 }

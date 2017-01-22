@@ -11,10 +11,10 @@ import static org.junit.Assert.*;
 
 public class ShopTest{
 
-    Shop shop;
-    Product product;
-    Product product2;
-    Transaction transaction;
+    private Shop shop;
+    private Product product;
+    private Product product2;
+    private Transaction transaction;
 
     @Before
     public void before(){
