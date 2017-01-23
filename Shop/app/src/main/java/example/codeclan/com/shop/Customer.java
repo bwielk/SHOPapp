@@ -23,6 +23,14 @@ public class Customer {
         basket.add(product);
     }
 
+    public int numOfTransactions(){
+        return transactions.size();
+    }
+
+    public Transaction getTransaction(int index){
+        return transactions.get(index);
+    }
+
     public void setWallet(PaymentMethod card, Double funds){
         wallet.put(card, funds);
     }
@@ -73,16 +81,21 @@ public class Customer {
             Double fundsLeft = getFunds(card) - basket.getTotalPrice();
             setFunds(card, fundsLeft);
             Transaction transaction = new Transaction();
-            transaction.fillUp(card, basket);
+            transaction.create(card, basket);
             basket.empty();
             transactions.add(transaction);
             return "Transaction complete!";
         }
     }
 
-    public String refund(Product product){
 
-    }
+//    public String claimRefund(int transaction, PaymentMethod card){
+//
+//    }
+
+//    public String refund(Product product){
+//
+//    }
 
 }
 

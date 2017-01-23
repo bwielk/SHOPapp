@@ -48,11 +48,14 @@ public class Basket {
         return total;
     }
 //    MOVES ALL THE BASKET ITEMS INTO ANOTHER ARRAY
-//    public ArrayList<Product> prepForTransaction(){
-//        ArrayList<Product> array = new ArrayList<Product>();
-//        for(int i = 0; i < basket.size(); i += 1) {
-//            array.add(basket.remove(i));
-//            }
-//        return array;
-//        }
+    public ArrayList<Product> prepForTransaction(){
+        ArrayList<Product> array = new ArrayList<Product>();
+        int basketSize = basket.size();
+
+        for(int i = 0; i < basketSize; i += 1) {
+            Product product = basket.remove(0);//the index nums change each time the loop moves
+            array.add(product);
+            }
+        return array;
+        }
     }

@@ -91,4 +91,36 @@ public class CustomerTest {
         assertEquals(75.00, customer.getFunds(card1), 0.1);
     }
 
+    @Test
+    public void customerGetsTransactionReceipt(){
+        customer.addItem(product);
+        customer.addItem(product2);
+        customer.pay(card1);
+        customer.addItem(product);
+        customer.addItem(product2);
+        customer.pay(card1);
+        assertEquals(2, customer.numOfTransactions());
+    }
+
+    @Test
+    public void customerCanShowReceipt(){
+        customer.addItem(product);
+        customer.pay(card1);
+        customer.addItem(product2);
+        customer.pay(card1);
+        customer.addItem(product3);
+        customer.pay(card2);
+        assertEquals(3, customer.numOfTransactions());
+    }
+
+//    @Test
+//    public void customerCanClaimRefund(){
+//        customer.addItem(product);
+//        customer.addItem(product2);
+//        customer.pay(card1);
+//        customer.claimRefund(0, card2);
+//        assertEquals(75.00, customer.getFunds(card1), 0.1);
+//        assertEquals(180.00, customer.getFunds(card2), 0.1);
+//    }
+
     }

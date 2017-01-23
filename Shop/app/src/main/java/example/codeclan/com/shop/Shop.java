@@ -53,6 +53,12 @@ public class Shop {
         product.setStock(product.getStock() +1);
     }
 
+//    public void acceptRefund(Product product) {
+//        Double refund = product.getPrice();
+//        setRefunds(refund);
+//        product.setStock(product.getStock() +1);
+//    }
+
     @Override
     public String toString(){
         return  "Total sales value: £" + getIncome() +
