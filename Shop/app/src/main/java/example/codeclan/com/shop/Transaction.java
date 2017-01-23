@@ -10,9 +10,11 @@ import java.util.HashMap;
 public class Transaction {
 
     HashMap<String, Double> transaction;
+    HashMap<PaymentMethod, Double> details;
 
     public Transaction(){
         transaction = new HashMap<String, Double>();
+        details = new HashMap<PaymentMethod, Double>();
     }
 
     public void fillUp(Basket basket){
@@ -25,4 +27,12 @@ public class Transaction {
     public Double getPriceByName(String name){
         return transaction.get(name);
     }
+
+    public void defPayType(PaymentMethod card, Basket basket){
+        details.put(card, basket.getTotalPrice());
+    }
+//
+//    public PaymentMethod getPayType(){
+//        for (PaymentMethod key :
+//    }
 }
