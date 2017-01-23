@@ -6,13 +6,20 @@ package example.codeclan.com.shop;
 
 public class Product {
 
+    String name;
     Double price;
     int stock;
 
-    public Product(Double price, int stock){
+    public Product(String name,Double price, int stock){
+        this.name = name;
         this.price = price;
         this.stock = stock;
     }
+
+    public String getName(){
+        return this.name;
+    }
+
 
     public Double getPrice(){
         return this.price;

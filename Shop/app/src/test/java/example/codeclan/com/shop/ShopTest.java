@@ -19,8 +19,8 @@ public class ShopTest{
     @Before
     public void before(){
         shop = new Shop();
-        product = new Product(20.00, 5);
-        product2 = new Product(30.00, 4);
+        product = new Product("1111", 20.00, 5);
+        product2 = new Product("2222", 30.00, 4);
         transaction = new Transaction();
     }
 

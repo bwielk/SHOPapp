@@ -15,7 +15,7 @@ public class Customer {
 
     public Customer() {
         this.basket = new Basket();
-        transactions = new ArrayList<Transaction>();
+        this.transactions = new ArrayList<Transaction>();
         this.wallet = new HashMap<PaymentMethod, Double >();
     }
 
@@ -47,7 +47,7 @@ public class Customer {
         return this.wallet;
     }
 
-    public void setFunds(PaymentMethod card, Double funds){
+    public void setFunds(PaymentMethod card, Double funds){////card class method??
         wallet.put(card, funds);
     }
 
@@ -77,8 +77,10 @@ public class Customer {
         }
     }
 
-    public String receiveRefund(PaymentMethod card, Transaction transaction){
-        
-    }
-
 }
+
+
+//HashMap<Product, Double> transaction = new HashMap<Product, Double>();
+//for(Product product : basket){
+//  transaction.put(product.getName product.getPrice);
+// }}

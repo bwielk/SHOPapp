@@ -17,9 +17,9 @@ public class BasketTest {
 
     @Before
     public void before(){
-        product = new Product(30.00, 2);
-        product2 = new Product(25.00, 5);
-        product3 = new Product(45.00, 1);
+        product = new Product("1111", 30.00, 2);
+        product2 = new Product("2222", 25.00, 5);
+        product3 = new Product("3333", 45.00, 1);
         basket = new Basket();
     }
 

@@ -14,12 +14,22 @@ public class ProductTest {
 
     @Before
     public void before(){
-        product = new Product(30.00, 5);
+        product = new Product("9999", 30.00, 5);
+    }
+
+    @Test
+    public void canGetName(){
+        assertEquals("9999", product.getName());
     }
 
     @Test
     public void canCheckTheStock(){
         assertEquals(5, product.getStock());
+    }
+
+    @Test
+    public void canGetPrice(){
+        assertEquals(30.00, product.getPrice(), 0.1);
     }
 
 }

@@ -11,4 +11,6 @@ public class DebitCard implements PaymentMethod{
     public DebitCard(){
         funds = 0.0;
     }
+
+
 }

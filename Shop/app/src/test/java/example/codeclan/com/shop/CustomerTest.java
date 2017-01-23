@@ -21,9 +21,9 @@ public class CustomerTest {
     @Before
     public void before(){
         customer = new Customer();
-        product = new Product(30.00, 2);
-        product2 = new Product(25.00, 1);
-        product3 = new Product(10.00, 3);
+        product = new Product("1111", 30.00, 2);
+        product2 = new Product("2222", 25.00, 1);
+        product3 = new Product("3333", 10.00, 3);
         basket = new Basket();
         card1 = new CreditCard();
         card2 = new DebitCard();

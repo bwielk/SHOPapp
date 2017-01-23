@@ -47,4 +47,12 @@ public class Basket {
         }
         return total;
     }
-}
+
+    public ArrayList<Product> prepForTransaction(){
+        ArrayList<Product> array = new ArrayList<Product>();
+        for(int i = 0; i < basket.size(); i += 1) {
+            array.add(basket.remove(i));
+            }
+        return array;
+        }
+    }
