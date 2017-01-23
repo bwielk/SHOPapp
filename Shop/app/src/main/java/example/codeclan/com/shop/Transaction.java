@@ -9,28 +9,44 @@ import java.util.HashMap;
 
 public class Transaction {
 
-    HashMap<String, Double> transaction;
-    HashMap<PaymentMethod, Double> details;
+    HashMap<PaymentMethod, Basket> transaction;
+//    HashMap<PaymentMethod, Double> details;
 
     public Transaction(){
-        transaction = new HashMap<String, Double>();
-        details = new HashMap<PaymentMethod, Double>();
+        transaction = new HashMap<PaymentMethod, Basket>();
+//        details = new HashMap<PaymentMethod, Double>();
     }
 
-    public void fillUp(Basket basket){
-        ArrayList<Product> array = basket.prepForTransaction();
-        for(Product product : array) {
-            transaction.put(product.getName(), product.getPrice());
+    public void fillUp(PaymentMethod card, Basket basket){
+        transaction.put(card, basket);
+    }
+
+    public Basket getBasket() {
+        return transaction.get(transaction.keySet().toArray()[0]);
+
+    }
+
+    public PaymentMethod getPayMethod() {
+        ArrayList<PaymentMethod> array = new ArrayList<PaymentMethod>();
+        for (PaymentMethod key : transaction.keySet()) {
+            array.add(key);
         }
+        return array.get(0);
     }
 
-    public Double getPriceByName(String name){
-        return transaction.get(name);
-    }
-
-    public void defPayType(PaymentMethod card, Basket basket){
-        details.put(card, basket.getTotalPrice());
-    }
+//        ArrayList<Product> array = basket.prepForTransaction();
+//        for(Product product : array) {
+//            transaction.put(product.getName(), product.getPrice());
+//        }
+//    }
+////
+//    public Double getPriceByName(int index){
+//        return transaction.get();
+//    }
+//
+//    public void defPayType(PaymentMethod card, Basket basket){
+//        transaction.put(card, basket.getTotalPrice());
+//    }
 //
 //    public PaymentMethod getPayType(){
 //        for (PaymentMethod key :

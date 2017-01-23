@@ -72,9 +72,16 @@ public class Customer {
         } else {
             Double fundsLeft = getFunds(card) - basket.getTotalPrice();
             setFunds(card, fundsLeft);
+            Transaction transaction = new Transaction();
+            transaction.fillUp(card, basket);
             basket.empty();
+            transactions.add(transaction);
             return "Transaction complete!";
         }
+    }
+
+    public String refund(Product product){
+
     }
 
 }

@@ -36,20 +36,19 @@ public class TransactionTest {
 
     @Test
     public void canTurnBasketIntoATransaction(){
-        transaction1.fillUp(basket);
-        Double example = transaction1.getPriceByName("1111");
-        assertEquals(20.00, example, 0.1);
+        transaction1.fillUp(card1, basket);
+        assertEquals(card1, transaction1.getPayMethod());
     }
 
     @Test
-    public void canTurnBasketIntoATransaction2(){
-        transaction1.fillUp(basket);
-        Double example = transaction1.getPriceByName("2222");
-        assertEquals(30.00, example, 0.1);
+    public void canInteractWithBasket(){
+        transaction1.fillUp(card2, basket);
+        Basket sample = transaction1.getBasket();
+        assertEquals(70.00, sample.getTotalPrice(), 0.1);
     }
+
 //    @Test
-//    public void canDefineRegisterPaymentMethod(){
-//        transaction1.defPayType(card1, basket);
-//        assertEquals(card1, transaction1.getPayType());
+//    public void canBeRefundable(){
+//
 //    }
 }
