@@ -32,6 +32,14 @@ public class Transaction {
     public ArrayList<Product> getItems(){
         return this.products;
     }
+
+    public Double getTotal(){
+        Double total = 0.0;
+        for(Product product : products){
+            total += product.getPrice();
+        }
+        return total;
+    }
 }
 
 

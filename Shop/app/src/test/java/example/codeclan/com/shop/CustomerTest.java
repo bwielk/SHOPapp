@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
  */
 public class CustomerTest {
 
+    private Shop shop;
     private Product product;
     private Customer customer;
     private Product product2;
@@ -18,10 +19,12 @@ public class CustomerTest {
     private CreditCard card1;
     private DebitCard card2;
 
+
     @Before
-    public void before(){
+    public void before() {
+        shop = new Shop();
         customer = new Customer();
-        product = new Product("1111", 30.00, 2);
+        product = new Product("1111", 30.00, 4);
         product2 = new Product("2222", 25.00, 1);
         product3 = new Product("3333", 10.00, 3);
         basket = new Basket();
@@ -32,14 +35,14 @@ public class CustomerTest {
     }
 
     @Test
-    public void canAddItemsToTheBasket(){
+    public void canAddItemsToTheBasket() {
         customer.addItem(product);
         customer.addItem(product2);
         assertEquals(2, customer.numOfItems());
     }
 
     @Test
-    public void canEmptyBasket(){
+    public void canEmptyBasket() {
         customer.addItem(product);
         customer.addItem(product2);
         customer.emptyBasket();
@@ -47,7 +50,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void canDeleteAnItem(){
+    public void canDeleteAnItem() {
         customer.addItem(product);
         customer.addItem(product2);
         customer.putBack(1);
@@ -56,35 +59,35 @@ public class CustomerTest {
     }
 
     @Test
-    public void canDeleteAnItem2(){
+    public void canDeleteAnItem2() {
         customer.addItem(product);
         customer.addItem(product2);
         customer.addItem(product3);
         customer.putBack(0);
         Product example1 = customer.getItem(1);
-        assertEquals(10.00, example1.getPrice(),0.1);
+        assertEquals(10.00, example1.getPrice(), 0.1);
     }
 
     @Test
-    public void canGetTotalFunds(){
+    public void canGetTotalFunds() {
         Double total = customer.getTotalFunds();
         assertEquals(255.00, total, 0.1);
     }
 
     @Test
-    public void canGetFundsOfAPArticularCard(){
+    public void canGetFundsOfAPArticularCard() {
         Double funds = customer.getFunds(card1);
         assertEquals(130.00, funds, 0.1);
     }
 
     @Test
-    public void CanChangeFunds(){
+    public void CanChangeFunds() {
         customer.setFunds(card1, 100.00);
         assertEquals(100.00, customer.getFunds(card1), 0.1);
     }
 
     @Test
-    public void canPayForItemsInBasket1(){
+    public void canPayForItemsInBasket1() {
         customer.addItem(product);
         customer.addItem(product2);
         customer.pay(card1);
@@ -92,7 +95,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void customerGetsTransactionReceipt(){
+    public void customerGetsTransactionReceipt() {
         customer.addItem(product);
         customer.addItem(product2);
         customer.pay(card1);
@@ -103,24 +106,28 @@ public class CustomerTest {
     }
 
     @Test
-    public void customerCanShowReceipt(){
+    public void customerCanShowReceipt() {
+        customer.addItem(product);
         customer.addItem(product);
         customer.pay(card1);
         customer.addItem(product2);
+        customer.addItem(product3);
         customer.pay(card1);
+        customer.addItem(product3);
         customer.addItem(product3);
         customer.pay(card2);
         assertEquals(3, customer.numOfTransactions());
+        assertEquals(60.00, customer.getTransaction(0).getTotal(), 0.1);
+        assertEquals(35.00, customer.getTransaction(1).getTotal(), 0.1);
+        assertEquals(20.00, customer.getTransaction(2).getTotal(), 0.1);
     }
 
-//    @Test
-//    public void customerCanClaimRefund(){
-//        customer.addItem(product);
-//        customer.addItem(product2);
-//        customer.pay(card1);
-//        customer.claimRefund(0, card2);
-//        assertEquals(75.00, customer.getFunds(card1), 0.1);
-//        assertEquals(180.00, customer.getFunds(card2), 0.1);
-//    }
-
+    @Test
+    public void customerCanGetRefund() {
+        customer.addItem(product);
+        customer.addItem(product2);
+        customer.pay(card1);
+        customer.getRefund(0, card2, shop);
+        assertEquals(180.00, customer.getFunds(card2), 0.1);
     }
+}

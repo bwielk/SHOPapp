@@ -89,18 +89,13 @@ public class Customer {
     }
 
 
-//    public String claimRefund(int transaction, PaymentMethod card){
-//
-//    }
-
-//    public String refund(Product product){
-//
-//    }
-
+    public String getRefund(int transactionIndexNum, PaymentMethod card, Shop shop) {
+        if (transactions != null) {
+            Product product = transactions.get(transactionIndexNum).getItems().get(0);
+            shop.acceptRefund(product);
+            return "You have received a successful refund";
+        } else {
+            return "There is nothing to return!";
+        }
+    }
 }
-
-
-//HashMap<Product, Double> transaction = new HashMap<Product, Double>();
-//for(Product product : basket){
-//  transaction.put(product.getName product.getPrice);
-// }}
