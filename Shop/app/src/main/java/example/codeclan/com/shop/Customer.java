@@ -64,7 +64,6 @@ public class Customer {
         return funds;
     }
 
-
     public Double getTotalFunds(){
         Double total = 0.0;
         HashMap<PaymentMethod, Double> cards = getCards();
@@ -74,28 +73,34 @@ public class Customer {
         return total;
     }
 
-    public String pay(PaymentMethod card) {
+    public String pay(PaymentMethod card, Shop shop) {
         if (getFunds(card) < basket.getTotalPrice()) {
             return "Not enough funds on your card! Try again";
         } else {
             Double fundsLeft = getFunds(card) - basket.getTotalPrice();
             setFunds(card, fundsLeft);
             Transaction transaction = new Transaction();
-            transaction.create(card, basket);
+            transaction.create(card, basket, shop);
             basket.empty();
             transactions.add(transaction);
             return "Transaction complete!";
         }
     }
 
-
-    public String getRefund(int transactionIndexNum, PaymentMethod card, Shop shop) {
+    public String getRefund(int transactionIndexNum, int itemIndexNum, PaymentMethod card) {
         if (transactions != null) {
-            Product product = transactions.get(transactionIndexNum).getItems().get(0);
-            shop.acceptRefund(product);
+            Transaction transaction = transactions.get(transactionIndexNum);
+            Shop shop = transaction.getShop();
+            Product productToReturn = transaction.getItems().get(itemIndexNum);
+            transaction.getItems().set(itemIndexNum, null);
+            shop.acceptRefund(productToReturn, card);
             return "You have received a successful refund";
         } else {
             return "There is nothing to return!";
         }
     }
 }
+
+
+//SEPARATE ARRAY FOR REFUNDABLE ITEMS?
+//SHOP ATTRIBUTE, SHOP NAME TO MAKE IT EASIER TO NAVIGATE THE TRANSACTIONS?

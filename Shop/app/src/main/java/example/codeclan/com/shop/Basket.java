@@ -53,7 +53,7 @@ public class Basket {
         int basketSize = basket.size();
 
         for(int i = 0; i < basketSize; i += 1) {
-            Product product = basket.remove(0);//the index nums change each time the loop moves
+            Product product = basket.remove(0);//the index nums of the elements of the array change each time the loop moves!
             array.add(product);
             }
         return array;

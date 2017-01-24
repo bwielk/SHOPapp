@@ -6,9 +6,17 @@ package example.codeclan.com.shop;
 
 public class CreditCard implements PaymentMethod {
 
-    public double funds;
+    public Double funds;
 
     public CreditCard(){
-       funds = 0.0;
+       this.funds = 0.0;
+    }
+
+    public Double getFunds(){
+        return funds;
+    }
+
+    public void receiveTransfer(Double value){
+        this.funds += value;
     }
 }

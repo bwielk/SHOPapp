@@ -90,7 +90,7 @@ public class CustomerTest {
     public void canPayForItemsInBasket1() {
         customer.addItem(product);
         customer.addItem(product2);
-        customer.pay(card1);
+        customer.pay(card1, shop);
         assertEquals(75.00, customer.getFunds(card1), 0.1);
     }
 
@@ -98,10 +98,10 @@ public class CustomerTest {
     public void customerGetsTransactionReceipt() {
         customer.addItem(product);
         customer.addItem(product2);
-        customer.pay(card1);
+        customer.pay(card1, shop);
         customer.addItem(product);
         customer.addItem(product2);
-        customer.pay(card1);
+        customer.pay(card1, shop);
         assertEquals(2, customer.numOfTransactions());
     }
 
@@ -109,13 +109,13 @@ public class CustomerTest {
     public void customerCanShowReceipt() {
         customer.addItem(product);
         customer.addItem(product);
-        customer.pay(card1);
+        customer.pay(card1, shop);
         customer.addItem(product2);
         customer.addItem(product3);
-        customer.pay(card1);
+        customer.pay(card1, shop);
         customer.addItem(product3);
         customer.addItem(product3);
-        customer.pay(card2);
+        customer.pay(card2, shop);
         assertEquals(3, customer.numOfTransactions());
         assertEquals(60.00, customer.getTransaction(0).getTotal(), 0.1);
         assertEquals(35.00, customer.getTransaction(1).getTotal(), 0.1);
@@ -126,8 +126,8 @@ public class CustomerTest {
     public void customerCanGetRefund() {
         customer.addItem(product);
         customer.addItem(product2);
-        customer.pay(card1);
-        customer.getRefund(0, card2, shop);
+        customer.pay(card1, shop);
+        customer.getRefund(0, card2);
         assertEquals(180.00, customer.getFunds(card2), 0.1);
     }
 }

@@ -47,10 +47,17 @@ public class Shop {
         }
     }
 
-    public void acceptRefund(Product product) {
+    public void transferRefund(Double value, PaymentMethod card){
+        Refund refund = new Refund();
+        refund.create(value, card);
+        refund.sendRefund();
+    }
+
+    public void acceptRefund(Product product, PaymentMethod card) {
         Double refund = product.getPrice();
         setRefunds(refund);
         product.setStock(product.getStock() +1);
+        transferRefund(refund, card);
     }
 
     @Override

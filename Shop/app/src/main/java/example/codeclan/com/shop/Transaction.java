@@ -12,17 +12,20 @@ import java.util.HashMap;
 
 public class Transaction {
 
-     HashMap<String, PaymentMethod> paymentType;
-     ArrayList<Product> products;
+    HashMap<String, PaymentMethod> paymentType;
+    ArrayList<Product> products;
+    Shop shop;
 
     public Transaction() {
         this.paymentType = new HashMap<String, PaymentMethod>();
         this.products = new ArrayList<Product>();
+        this.shop = new Shop();
     }
 
-    public void create(PaymentMethod card, Basket basket){
+    public void create(PaymentMethod card, Basket basket, Shop shop){
         paymentType.put("type", card);
         products = basket.prepForTransaction();
+        this.shop = shop;
     }
 
     public PaymentMethod getPayMethod(){
@@ -33,6 +36,10 @@ public class Transaction {
         return this.products;
     }
 
+    public Shop getShop(){
+        return this.shop;
+    }
+
     public Double getTotal(){
         Double total = 0.0;
         for(Product product : products){
@@ -41,17 +48,6 @@ public class Transaction {
         return total;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //    HashMap<PaymentMethod, ArrayList<Product>> transaction;

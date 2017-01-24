@@ -5,5 +5,6 @@ package example.codeclan.com.shop;
  */
 
 public interface PaymentMethod {
-
+    Double getFunds();
+    void receiveTransfer(Double value);
 }

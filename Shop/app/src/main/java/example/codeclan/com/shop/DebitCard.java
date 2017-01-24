@@ -12,5 +12,12 @@ public class DebitCard implements PaymentMethod{
         funds = 0.0;
     }
 
+    public Double getFunds(){
+        return funds;
+    }
+
+    public void receiveTransfer(Double value){
+        this.funds += value;
+    }
 
 }

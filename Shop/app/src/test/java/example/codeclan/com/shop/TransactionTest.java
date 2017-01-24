@@ -20,9 +20,12 @@ public class TransactionTest{
     private Customer customer1;
     private DebitCard card1;
     private CreditCard card2;
+    private Shop shop;
 
     @Before
     public void before() {
+
+        shop = new Shop();
         customer = new Customer();
         customer1 = new Customer();
         card1 = new DebitCard();
@@ -42,20 +45,26 @@ public class TransactionTest{
 
     @Test
     public void TransactionCanBeCreated(){
-        transaction1.create(card1, basket);
+        transaction1.create(card1, basket, shop);
         assertEquals(card1, transaction1.getPayMethod());
     }
 
     @Test
     public void TransactionCanBeCreated2(){
-        transaction1.create(card2, basket);
+        transaction1.create(card2, basket, shop);
         assertEquals(card2, transaction1.getPayMethod());
     }
 
     @Test
     public void TransactionRegistersItems(){
-        transaction1.create(card2, basket);
+        transaction1.create(card2, basket, shop);
         assertEquals(4, transaction1.getItems().size());
+    }
+
+    @Test
+    public void canGetShop(){
+        transaction1.create(card2, basket, shop);
+        assertEquals(shop, transaction1.getShop());
     }
 
 
