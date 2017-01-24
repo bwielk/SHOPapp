@@ -9,11 +9,11 @@ public class DebitCard implements PaymentMethod{
     double funds;
 
     public DebitCard(){
-        funds = 0.0;
+        this.funds = 0.0;
     }
 
     public Double getFunds(){
-        return funds;
+        return this.funds;
     }
 
     public void receiveTransfer(Double value){

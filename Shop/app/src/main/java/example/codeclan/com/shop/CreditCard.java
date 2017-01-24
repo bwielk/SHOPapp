@@ -13,7 +13,7 @@ public class CreditCard implements PaymentMethod {
     }
 
     public Double getFunds(){
-        return funds;
+        return this.funds;
     }
 
     public void receiveTransfer(Double value){

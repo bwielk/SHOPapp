@@ -50,7 +50,7 @@ public class Shop {
     public void transferRefund(Double value, PaymentMethod card){
         Refund refund = new Refund();
         refund.create(value, card);
-        refund.sendRefund();
+//        refund.sendRefund(Customer customer);
     }
 
     public void acceptRefund(Product product, PaymentMethod card) {

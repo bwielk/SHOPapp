@@ -59,6 +59,12 @@ public class Customer {
         wallet.put(card, funds);
     }
 
+    public void receiveRefund(Double value, PaymentMethod card){
+        Double currentFunds = wallet.get(card);
+        Double updatedFunds = currentFunds + value;
+        wallet.put(card, updatedFunds);
+    }
+
     public Double getFunds(PaymentMethod card){
         Double funds = wallet.get(card); //getting a value of the card
         return funds;
