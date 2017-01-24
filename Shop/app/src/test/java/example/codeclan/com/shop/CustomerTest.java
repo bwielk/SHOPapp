@@ -135,6 +135,5 @@ public class CustomerTest {
         customer.getRefund(1,2, card1);
         assertEquals(110.00, customer.getFunds(card1), 0.1);
         assertEquals(135.00, customer.getFunds(card2), 0.1);
-
     }
 }

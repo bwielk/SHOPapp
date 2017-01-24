@@ -22,14 +22,27 @@ public class ShopTest{
     @Before
     public void before(){
         shop = new Shop("Chanel");
-        product = new Product("1111", 20.00, 5);
-        product2 = new Product("2222", 30.00, 4);
+        product = new Product("1111", 20.00, 10);
+        product2 = new Product("2222", 30.00, 10);
         transaction = new Transaction();
         card1 = new DebitCard();
         card2 = new CreditCard();
         customer = new Customer();
         customer.setWallet(card1, 100.00);
         customer.setWallet(card2, 120.00);
+    }
+
+    @Test
+    public void updatesStockAfterSales() {
+        shop.sell(product, 2);
+        assertEquals(8, product.getStock());
+    }
+
+    @Test
+    public void updatesStockAfterRefund(){
+        shop.sell(product, 2);
+        shop.acceptRefund(customer, product, card2); //-1
+        assertEquals(9, product.getStock());
     }
 
     @Test
@@ -71,26 +84,13 @@ public class ShopTest{
         shop.sell(product, 5);
         shop.sell(product2, 1);
         shop.acceptRefund(customer, product, card1);
-        assertEquals("Total sales value: £110\nTotal refunds value: £20\nTotal transaction value: £130", shop.printReport());
+        assertEquals("Total sales value: £110.0\nTotal refunds value: £20.0\nTotal transaction value: £130.0", shop.printReport());
     }
 
-    @Test
-    public void updatesStockAfterSales() {
-        shop.sell(product, 2);
-        assertEquals(3, product.getStock());
-    }
-
-    @Test
-    public void updatesStockAfterRefund(){
-        shop.sell(product, 2);
-        shop.acceptRefund(customer, product, card2);
-        assertEquals(4, product.getStock());
-
-    }
 
     @Test
     public void cannotSellAnItemIfNotEnoughItems(){
-        assertEquals("Not enough products in stock", shop.sell(product, 10));
+        assertEquals("Not enough products in stock", shop.sell(product, 11));
     }
 
     @Test

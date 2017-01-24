@@ -30,7 +30,7 @@ public class Product {
     }
 
     public void setStock(int number){
-        this.stock -= number;
+        this.stock = number;
     }
 
 }
