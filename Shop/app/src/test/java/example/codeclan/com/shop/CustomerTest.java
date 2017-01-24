@@ -15,19 +15,17 @@ public class CustomerTest {
     private Customer customer;
     private Product product2;
     private Product product3;
-    private Basket basket;
     private CreditCard card1;
     private DebitCard card2;
 
 
     @Before
     public void before() {
-        shop = new Shop();
+        shop = new Shop("Dior");
         customer = new Customer();
         product = new Product("1111", 30.00, 4);
-        product2 = new Product("2222", 25.00, 1);
-        product3 = new Product("3333", 10.00, 3);
-        basket = new Basket();
+        product2 = new Product("2222", 25.00, 6);
+        product3 = new Product("3333", 10.00, 8);
         card1 = new CreditCard();
         card2 = new DebitCard();
         customer.setWallet(card1, 130.00);
@@ -123,11 +121,20 @@ public class CustomerTest {
     }
 
     @Test
-    public void customerCanGetRefund() {
-        customer.addItem(product);
-        customer.addItem(product2);
+    public void customerCanGetRefund() { //card1 = 130 card2 = 125
+        customer.addItem(product);//30
+        customer.addItem(product2);//25
         customer.pay(card1, shop);
-//        customer.getRefund(0, card2);
-        assertEquals(180.00, customer.getFunds(card2), 0.1);
+        customer.addItem(product);//30
+        customer.addItem(product3);//10
+        customer.addItem(product3);//10
+        customer.pay(card2, shop);
+        customer.getRefund(0,0, card2);
+        customer.getRefund(0,1, card1);
+        customer.getRefund(1,0, card2);
+        customer.getRefund(1,2, card1);
+        assertEquals(110.00, customer.getFunds(card1), 0.1);
+        assertEquals(135.00, customer.getFunds(card2), 0.1);
+
     }
 }

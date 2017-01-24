@@ -99,14 +99,12 @@ public class Customer {
             Shop shop = transaction.getShop();
             Product productToReturn = transaction.getItems().get(itemIndexNum);
             transaction.getItems().set(itemIndexNum, null);
-            shop.acceptRefund(productToReturn, card);
+            shop.acceptRefund(this, productToReturn, card);
             return "You have received a successful refund";
         } else {
             return "There is nothing to return!";
         }
     }
 }
-
-
 //SEPARATE ARRAY FOR REFUNDABLE ITEMS?
 //SHOP ATTRIBUTE, SHOP NAME TO MAKE IT EASIER TO NAVIGATE THE TRANSACTIONS?

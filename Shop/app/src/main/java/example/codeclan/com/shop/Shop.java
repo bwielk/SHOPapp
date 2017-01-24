@@ -6,12 +6,18 @@ package example.codeclan.com.shop;
 
 public class Shop {
 
+    private String name;
     private Double transaction;
     private Double refund;
 
-    public Shop() {
+    public Shop(String name) {
+        this.name = name;
         transaction = 0.0;
         refund = 0.0;
+    }
+
+    public String getName(){
+        return this.name;
     }
 
     public Double getTransactionValue() {
@@ -47,17 +53,17 @@ public class Shop {
         }
     }
 
-    public void transferRefund(Double value, PaymentMethod card){
-        Refund refund = new Refund();
-        refund.create(value, card);
-//        refund.sendRefund(Customer customer);
+    public void transferRefund(Customer customer, Double value, PaymentMethod card){
+        Refund refundForm = new Refund();
+        refundForm.create(value, card);
+        refundForm.sendRefund(customer);
     }
 
-    public void acceptRefund(Product product, PaymentMethod card) {
+    public void acceptRefund(Customer customer, Product product, PaymentMethod card) {
         Double refund = product.getPrice();
         setRefunds(refund);
         product.setStock(product.getStock() +1);
-        transferRefund(refund, card);
+        transferRefund(customer, refund, card);
     }
 
     @Override

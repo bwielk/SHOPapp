@@ -19,7 +19,7 @@ public class Transaction {
     public Transaction() {
         this.paymentType = new HashMap<String, PaymentMethod>();
         this.products = new ArrayList<Product>();
-        this.shop = new Shop();
+        this.shop = new Shop("Dior");
     }
 
     public void create(PaymentMethod card, Basket basket, Shop shop){

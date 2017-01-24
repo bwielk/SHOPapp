@@ -25,7 +25,7 @@ public class TransactionTest{
     @Before
     public void before() {
 
-        shop = new Shop();
+        shop = new Shop("Dior");
         customer = new Customer();
         customer1 = new Customer();
         card1 = new DebitCard();
