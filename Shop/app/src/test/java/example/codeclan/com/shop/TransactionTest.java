@@ -41,7 +41,12 @@ public class TransactionTest{
         basket.add(product2);
         transaction1 = new Transaction();
     }
-
+    @Test
+    public void canGetProductByName(){
+        transaction1.create(card1, basket, shop);
+        Product item = transaction1.getItemByName("1111");
+        assertEquals(20.00, item.getPrice(), 0.1);
+    }
 
     @Test
     public void TransactionCanBeCreated(){

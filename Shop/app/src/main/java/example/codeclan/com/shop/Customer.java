@@ -94,7 +94,7 @@ public class Customer {
     }
 
     public String getRefund(int transactionIndexNum, int itemIndexNum, PaymentMethod card) {
-        if (transactions != null) {
+        if (transactions.size() != 0) {
             Transaction transaction = transactions.get(transactionIndexNum);
             Shop shop = transaction.getShop();
             Product productToReturn = transaction.getItems().get(itemIndexNum);

@@ -93,6 +93,14 @@ public class CustomerTest {
     }
 
     @Test
+    public void basketIsEmptyAfterTransaction() {
+        customer.addItem(product);
+        customer.addItem(product2);
+        customer.pay(card1, shop);
+        assertEquals(0, customer.numOfItems());
+    }
+
+    @Test
     public void customerGetsTransactionReceipt() {
         customer.addItem(product);
         customer.addItem(product2);
@@ -135,5 +143,11 @@ public class CustomerTest {
         customer.getRefund(1,2, card1);
         assertEquals(110.00, customer.getFunds(card1), 0.1);
         assertEquals(135.00, customer.getFunds(card2), 0.1);
+        assertEquals(0, customer.numOfItems());
+    }
+
+    @Test
+    public void customerHasNothingToClaimRefundOn(){
+        assertEquals("There is nothing to return!", customer.getRefund(0,0,card1));
     }
 }

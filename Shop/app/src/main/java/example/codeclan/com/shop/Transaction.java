@@ -16,10 +16,23 @@ public class Transaction {
     ArrayList<Product> products;
     Shop shop;
 
+
     public Transaction() {
         this.paymentType = new HashMap<String, PaymentMethod>();
         this.products = new ArrayList<Product>();
         this.shop = new Shop("Dior");
+    }
+
+    public Product getItemByName(String name) {
+        Product productFound = null;
+        for (Product product : products) {
+            if (product.getName() == name) {
+                productFound = product;
+            } else {
+                System.out.println("No item found");
+            }
+        }
+        return productFound;
     }
 
     public void create(PaymentMethod card, Basket basket, Shop shop){
