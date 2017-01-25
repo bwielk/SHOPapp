@@ -144,6 +144,7 @@ public class CustomerTest {
         assertEquals(110.00, customer.getFunds(card1), 0.1);
         assertEquals(135.00, customer.getFunds(card2), 0.1);
         assertEquals(0, customer.numOfItems());
+        assertEquals(105.00, shop.getTransactionValue(), 0.1);
     }
 
     @Test

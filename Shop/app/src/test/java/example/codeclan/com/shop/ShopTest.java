@@ -14,22 +14,24 @@ public class ShopTest{
     private Shop shop;
     private Product product;
     private Product product2;
-    private Transaction transaction;
     private DebitCard card1;
     private CreditCard card2;
     private Customer customer;
+    private Payment payment1;
+    private Payment payment2;
 
     @Before
     public void before(){
         shop = new Shop("Chanel");
         product = new Product("1111", 20.00, 10);
         product2 = new Product("2222", 30.00, 10);
-        transaction = new Transaction();
         card1 = new DebitCard();
         card2 = new CreditCard();
         customer = new Customer();
         customer.setWallet(card1, 100.00);
         customer.setWallet(card2, 120.00);
+        payment1 = new Payment();
+        payment2 = new Payment();
     }
 
     @Test
@@ -97,5 +99,14 @@ public class ShopTest{
     public void shopCanTransferRefunds(){
         shop.transferRefund(customer, 30.00, card1);
         assertEquals(130.00, customer.getFunds(card1), 0.1);
+    }
+
+    @Test
+    public void shopCanReceivePaymentFromCustomer(){
+        payment1.create(60.00, shop);
+        payment1.sendPayment();
+        payment2.create(65.00, shop);
+        payment2.sendPayment();
+        assertEquals(125.00, shop.getTransactionValue(), 0.1);
     }
 }

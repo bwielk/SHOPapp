@@ -83,6 +83,9 @@ public class Customer {
         if (getFunds(card) < basket.getTotalPrice()) {
             return "Not enough funds on your card! Try again";
         } else {
+            Payment payment = new Payment();
+            payment.create(basket.getTotalPrice(), shop);
+            payment.sendPayment();
             Double fundsLeft = getFunds(card) - basket.getTotalPrice();
             setFunds(card, fundsLeft);
             Transaction transaction = new Transaction();
