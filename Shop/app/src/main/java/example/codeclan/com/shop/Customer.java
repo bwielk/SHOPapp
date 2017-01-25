@@ -55,7 +55,7 @@ public class Customer {
         return this.wallet;
     }
 
-    public void setFunds(PaymentMethod card, Double funds){////card class method??
+    public void setFunds(PaymentMethod card, Double funds){
         wallet.put(card, funds);
     }
 
@@ -66,14 +66,14 @@ public class Customer {
     }
 
     public Double getFunds(PaymentMethod card){
-        Double funds = wallet.get(card); //getting a value of the card
+        Double funds = wallet.get(card);
         return funds;
     }
 
     public Double getTotalFunds(){
         Double total = 0.0;
         HashMap<PaymentMethod, Double> cards = getCards();
-        for( Double funds : cards.values()){ //cards.values() = an "arrayish" Collection of values
+        for( Double funds : cards.values()){
             total += funds;
         }
         return total;
@@ -109,5 +109,3 @@ public class Customer {
         }
     }
 }
-//SEPARATE ARRAY FOR REFUNDABLE ITEMS?
-//SHOP ATTRIBUTE, SHOP NAME TO MAKE IT EASIER TO NAVIGATE THE TRANSACTIONS?

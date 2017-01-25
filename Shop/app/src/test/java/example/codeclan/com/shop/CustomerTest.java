@@ -137,14 +137,16 @@ public class CustomerTest {
         customer.addItem(product3);//10
         customer.addItem(product3);//10
         customer.pay(card2, shop);
-        customer.getRefund(0,0, card2);
-        customer.getRefund(0,1, card1);
-        customer.getRefund(1,0, card2);
-        customer.getRefund(1,2, card1);
+        customer.getRefund(0,0, card2);//30
+        customer.getRefund(0,1, card1);//25
+        customer.getRefund(1,0, card2);//30
+        customer.getRefund(1,2, card1);//10
         assertEquals(110.00, customer.getFunds(card1), 0.1);
         assertEquals(135.00, customer.getFunds(card2), 0.1);
         assertEquals(0, customer.numOfItems());
         assertEquals(105.00, shop.getTransactionValue(), 0.1);
+        assertEquals(95.00, shop.getRefundsValue(), 0.1);
+        assertEquals(10, shop.getIncome(), 0.1);
     }
 
     @Test
