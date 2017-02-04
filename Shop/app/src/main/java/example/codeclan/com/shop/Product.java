@@ -6,9 +6,9 @@ package example.codeclan.com.shop;
 
 public class Product {
 
-    String name;
-    Double price;
-    int stock;
+    private String name;
+    private Double price;
+    private int stock;
 
     public Product(String name,Double price, int stock){
         this.name = name;
@@ -19,7 +19,6 @@ public class Product {
     public String getName(){
         return this.name;
     }
-
 
     public Double getPrice(){
         return this.price;

@@ -129,7 +129,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void customerCanGetRefund() { //card1 = 130 card2 = 125
+    public void customerCanGetRefundandRefundMakesChangesToTheShop() { //card1 = 130 card2 = 125
         customer.addItem(product);//30
         customer.addItem(product2);//25
         customer.pay(card1, shop);
@@ -147,6 +147,13 @@ public class CustomerTest {
         assertEquals(105.00, shop.getTransactionValue(), 0.1);
         assertEquals(95.00, shop.getRefundsValue(), 0.1);
         assertEquals(10, shop.getIncome(), 0.1);
+    }
+
+    @Test
+    public void customerCanGetRefundandRefundMakesChangesToTheShop2(){
+        customer.addItem(product3);
+        customer.addItem(product2);
+        customer.pay(card1, shop);
     }
 
     @Test

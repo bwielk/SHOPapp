@@ -6,8 +6,8 @@ package example.codeclan.com.shop;
 
 public class Refund {
 
-    Double value;
-    PaymentMethod card;
+    private Double value;
+    private PaymentMethod card;
 
     public Refund(){
         this.value = 0.0;

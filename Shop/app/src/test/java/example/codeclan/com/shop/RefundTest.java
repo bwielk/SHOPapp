@@ -10,10 +10,10 @@ import static org.junit.Assert.*;
  */
 public class RefundTest {
 
-    Refund refundForm;
-    DebitCard card1;
-    CreditCard card2;
-    Customer customer;
+    private Refund refundForm;
+    private DebitCard card1;
+    private CreditCard card2;
+    private Customer customer;
 
     @Before
     public void before(){
