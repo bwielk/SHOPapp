@@ -43,6 +43,8 @@ public class CustomerTest {
     @Test(expected = IllegalArgumentException.class)
     public void customerIsNotCreatedIfPhoneNumberIsWrong_TooManyOrTooFewDigits() throws IllegalArgumentException{
         new Customer("no_name@gmail.com", "088211123311");
+        new Customer("no_name@gmail.com", "0 882 111 233 11");
+        new Customer("no_name@gmail.com", "88211123311");
         new Customer("no_name@gmail.com", "88211123311");
         new Customer("no_name@gmail.com", "882123311");
         new Customer("no_name@gmail.com", "098");
@@ -53,6 +55,27 @@ public class CustomerTest {
         new Customer("no_name@gmail.com", "O2341122211");
         new Customer("no_name@gmail.com", "MyPhonenumber");
         new Customer("no_name@gmail.com", "0988j213453");
+    }
+
+    @Test
+    public void customerIsCreatedWithAPhoneNumberContainingSpaces(){
+        Customer newCustomer = new Customer("no_name@gmail.com", "0 123 123 11 12");
+        assertEquals("01231231112", newCustomer.getPhoneNumber());
+    }
+
+    @Test
+    public void customerIsCreatedIfThePhoneNumberContains10DigitsWithout0AtTheBeginning(){
+        Customer newCustomer1 = new Customer("no_name@gmail.com", "9871234455");
+        Customer newCustomer2 = new Customer("no_name@gmail.com", "0 987 123 44 55");
+        assertEquals("09871234455", newCustomer1.getPhoneNumber());
+        assertEquals("09871234455", newCustomer2.getPhoneNumber());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void customerIsNotCreatedIfThePhoneNumberContains10DigitsWithOneToThreeZerosAtTheBeginning() throws IllegalArgumentException{
+        new Customer("no_name@gmail.com", "0 023 2113499");
+        new Customer("no_name@gmail.com", "0 001 2113433");
+        new Customer("no_name@gmail.com", "0 000 1113499");
     }
 
     @Test

@@ -12,15 +12,17 @@ public class Customer {
 
     public Customer(String email, String phoneNumber) {
         String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
-        String phoneRegex = "^\\s*0\\s*\\d{3}\\s*\\d{3}\\s*(\\d{4}|\\d{2}\\s*\\d{2})\\s*$";
+        String phoneRegex = "^\\s*0\\s*[1-9]{3}\\s*\\d{3}\\s*(\\d{4}|\\d{2}\\s*\\d{2})\\s*$";
         if(email.matches(emailRegex)){
-            email.replaceAll(" ", "");
             this.email = email;
         }else{
             throw new IllegalArgumentException("Invalid date format. " +
                                                     "\nThe email format should be like this: name@domain.com");
         }
-
+        phoneNumber = phoneNumber.replaceAll(" ", "");
+        if(!phoneNumber.startsWith("0") && phoneNumber.length() == 10){
+            phoneNumber = "0" + phoneNumber;
+        }
         if(phoneNumber.matches(phoneRegex)){
             this.phoneNumber = phoneNumber;
         }else{
