@@ -16,7 +16,7 @@ public class RefundTest {
     public void before(){
         card1 = new DebitCard();
         card2 = new CreditCard();
-        customer = new Customer();
+        customer = new Customer("customer@gmail.com", "02231123421");
         customer.setWallet(card1, 100.00);
         customer.setWallet(card2, 95.00);
         refundForm = new Refund();

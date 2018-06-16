@@ -21,8 +21,8 @@ public class TransactionTest{
     public void before() {
 
         shop = new Shop("Dior");
-        customer = new Customer();
-        customer1 = new Customer();
+        customer = new Customer("thomas@gmail.com", "09231129012");
+        customer1 = new Customer("elza@gmail.com", "08772123344");
         card1 = new DebitCard();
         card2 = new CreditCard();
         customer.setWallet(card1, 100.00);

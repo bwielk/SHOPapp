@@ -1,18 +1,40 @@
 package shop;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class Customer {
 
+    private String email;
+    private String phoneNumber;
     private Basket basket;
-    private ArrayList<Transaction> transactions;
+    private List<Transaction> transactions;
     private HashMap<PaymentMethod, Double> wallet;
 
-    public Customer() {
+    public Customer(String email, String phoneNumber) throws ExceptionInInitializerError {
+        String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+        String phoneRegex = "^\\s*0\\s*\\d{3}\\s*\\d{3}\\s*(\\d{4}|\\d{2}\\s*\\d{2})\\s*$";
+        if(email.matches(emailRegex)){
+            this.email = email;
+        }else{
+            throw new ExceptionInInitializerError();
+        }
+
+        if(phoneNumber.matches(phoneRegex)){
+            this.phoneNumber = phoneNumber;
+        }else{
+            throw new ExceptionInInitializerError();
+        }
         this.basket = new Basket();
         this.transactions = new ArrayList<Transaction>();
         this.wallet = new HashMap<PaymentMethod, Double >();
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getPhoneNumber(){
+        return phoneNumber;
     }
 
     public void addItem(Product product){

@@ -23,7 +23,7 @@ public class ShopTest{
         product2 = new Product("2222", 30.00, 10);
         card1 = new DebitCard();
         card2 = new CreditCard();
-        customer = new Customer();
+        customer = new Customer("tony@gmail.com", "07823341123");
         customer.setWallet(card1, 100.00);
         customer.setWallet(card2, 120.00);
         payment1 = new Payment();
@@ -82,7 +82,7 @@ public class ShopTest{
         shop.sell(product, 5);
         shop.sell(product2, 1);
         shop.acceptRefund(customer, product, card1);
-        assertEquals("Total sales value: £110.0\nTotal refunds value: £20.0\nTotal transaction value: £130.0", shop.printReport());
+        assertEquals("Total sales value: ï¿½110.0\nTotal refunds value: ï¿½20.0\nTotal transaction value: ï¿½130.0", shop.printReport());
     }
 
 

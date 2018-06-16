@@ -15,7 +15,7 @@ public class PaymentTest {
     @Before
     public void before(){
         transfer = new Payment();
-        customer = new Customer();
+        customer = new Customer("greg@gmail.com", "07652223311");
         shop = new Shop("Vetements");
     }
 

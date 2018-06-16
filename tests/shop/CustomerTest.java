@@ -19,7 +19,7 @@ public class CustomerTest {
     @Before
     public void before() {
         shop = new Shop("Dior");
-        customer = new Customer();
+        customer = new Customer("email@email.com", "07952221123");
         product = new Product("1111", 30.00, 4);
         product2 = new Product("2222", 25.00, 6);
         product3 = new Product("3333", 10.00, 8);
@@ -28,6 +28,13 @@ public class CustomerTest {
         customer.setWallet(card1, 130.00);
         customer.setWallet(card2, 125.00);
     }
+
+    @Test
+    public void customerHasEmailAndPhoneNumber(){
+        assertEquals("email@email.com", customer.getEmail());
+        assertEquals("07952221123", customer.getPhoneNumber());
+    }
+
 
     @Test
     public void canAddItemsToTheBasket() {
