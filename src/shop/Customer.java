@@ -10,19 +10,22 @@ public class Customer {
     private List<Transaction> transactions;
     private HashMap<PaymentMethod, Double> wallet;
 
-    public Customer(String email, String phoneNumber) throws ExceptionInInitializerError {
+    public Customer(String email, String phoneNumber) {
         String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
         String phoneRegex = "^\\s*0\\s*\\d{3}\\s*\\d{3}\\s*(\\d{4}|\\d{2}\\s*\\d{2})\\s*$";
         if(email.matches(emailRegex)){
+            email.replaceAll(" ", "");
             this.email = email;
         }else{
-            throw new ExceptionInInitializerError();
+            throw new IllegalArgumentException("Invalid date format. " +
+                                                    "\nThe email format should be like this: name@domain.com");
         }
 
         if(phoneNumber.matches(phoneRegex)){
             this.phoneNumber = phoneNumber;
         }else{
-            throw new ExceptionInInitializerError();
+            throw new IllegalArgumentException("Invalid phone number format. " +
+                                                    "\nThe phone number format should be like this: 09876543322");
         }
         this.basket = new Basket();
         this.transactions = new ArrayList<Transaction>();

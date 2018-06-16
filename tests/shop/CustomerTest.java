@@ -35,6 +35,25 @@ public class CustomerTest {
         assertEquals("07952221123", customer.getPhoneNumber());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void customerIsNotCreatedIfEmailIsWrong() throws IllegalArgumentException{
+        new Customer("no_name@gmail@pl", "09871112233");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void customerIsNotCreatedIfPhoneNumberIsWrong_TooManyOrTooFewDigits() throws IllegalArgumentException{
+        new Customer("no_name@gmail.com", "088211123311");
+        new Customer("no_name@gmail.com", "88211123311");
+        new Customer("no_name@gmail.com", "882123311");
+        new Customer("no_name@gmail.com", "098");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void customerIsNotCreatedIfPhoneNumberIsWrong_NonDigitCharacters() throws IllegalArgumentException{
+        new Customer("no_name@gmail.com", "O2341122211");
+        new Customer("no_name@gmail.com", "MyPhonenumber");
+        new Customer("no_name@gmail.com", "0988j213453");
+    }
 
     @Test
     public void canAddItemsToTheBasket() {

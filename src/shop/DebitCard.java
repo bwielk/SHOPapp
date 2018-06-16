@@ -1,8 +1,6 @@
 package shop;
 
-public class DebitCard implements PaymentMethod{
-
-    double funds;
+public class DebitCard extends PaymentCard implements PaymentMethod{
 
     public DebitCard(){
         this.funds = 0.0;

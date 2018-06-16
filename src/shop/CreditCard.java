@@ -1,8 +1,6 @@
 package shop;
 
-public class CreditCard implements PaymentMethod {
-
-    public Double funds;
+public class CreditCard extends PaymentCard implements PaymentMethod {
 
     public CreditCard(){
        this.funds = 0.0;
