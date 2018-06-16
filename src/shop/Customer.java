@@ -1,5 +1,7 @@
 package shop;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
+
 import java.util.*;
 
 public class Customer {
@@ -30,7 +32,7 @@ public class Customer {
                                                     "\nThe phone number format should be like this: 09876543322");
         }
         this.basket = new Basket();
-        this.transactions = new ArrayList<Transaction>();
+        this.transactions = new LinkedList<Transaction>();
         this.wallet = new HashMap<PaymentMethod, Double >();
     }
 
@@ -54,8 +56,12 @@ public class Customer {
         return transactions.get(index);
     }
 
-    public void setWallet(PaymentMethod card, Double funds){
-        wallet.put(card, funds);
+    public void setFunds(PaymentMethod card, Double funds){
+        if(funds > 0) {
+            wallet.put(card, funds);
+        }else{
+            throw new IllegalArgumentException("Entered funds should be greater than 0");
+        }
     }
 
     public void putBack(int index){
@@ -76,10 +82,6 @@ public class Customer {
 
     public HashMap<PaymentMethod, Double> getCards(){
         return this.wallet;
-    }
-
-    public void setFunds(PaymentMethod card, Double funds){
-        wallet.put(card, funds);
     }
 
     public void receiveRefund(Double value, PaymentMethod card){

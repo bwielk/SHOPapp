@@ -24,8 +24,8 @@ public class ShopTest{
         card1 = new DebitCard();
         card2 = new CreditCard();
         customer = new Customer("tony@gmail.com", "07823341123");
-        customer.setWallet(card1, 100.00);
-        customer.setWallet(card2, 120.00);
+        customer.setFunds(card1, 100.00);
+        customer.setFunds(card2, 120.00);
         payment1 = new Payment();
         payment2 = new Payment();
     }

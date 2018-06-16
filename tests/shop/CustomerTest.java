@@ -25,8 +25,8 @@ public class CustomerTest {
         product3 = new Product("3333", 10.00, 8);
         card1 = new CreditCard();
         card2 = new DebitCard();
-        customer.setWallet(card1, 130.00);
-        customer.setWallet(card2, 125.00);
+        customer.setFunds(card1, 130.00);
+        customer.setFunds(card2, 125.00);
     }
 
     @Test
@@ -124,8 +124,13 @@ public class CustomerTest {
         assertEquals(130.00, funds, 0.1);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void cannotSetTheFundsWithAmountLessThan0() throws IllegalArgumentException{
+        customer.setFunds(card1, -100.00);
+    }
+
     @Test
-    public void CanChangeFunds() {
+    public void canChangeFunds() {
         customer.setFunds(card1, 100.00);
         assertEquals(100.00, customer.getFunds(card1), 0.1);
     }
