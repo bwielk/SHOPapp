@@ -97,8 +97,8 @@ public class CustomerTest {
     public void canDeleteAnItem() {
         customer.addItem(product);
         customer.addItem(product2);
-        customer.putBack(1);
-        Product example = customer.getItem(0);
+        customer.removeFromBasket(1);
+        Product example = customer.getBasket().getItemById(product.getName());
         assertEquals(30.00, example.getPrice(), 0.1);
     }
 
@@ -107,8 +107,8 @@ public class CustomerTest {
         customer.addItem(product);
         customer.addItem(product2);
         customer.addItem(product3);
-        customer.putBack(0);
-        Product example1 = customer.getItem(1);
+        customer.removeFromBasket(0);
+        Product example1 = customer.getBasket().getItemById(product3.getName());
         assertEquals(10.00, example1.getPrice(), 0.1);
     }
 

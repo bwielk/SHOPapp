@@ -44,6 +44,14 @@ public class Customer {
         return phoneNumber;
     }
 
+    public Basket getBasket(){
+        return basket;
+    }
+
+    public HashMap<PaymentMethod, Double> getCards(){
+        return this.wallet;
+    }
+
     public void addItem(Product product){
         basket.add(product);
     }
@@ -64,7 +72,7 @@ public class Customer {
         }
     }
 
-    public void putBack(int index){
+    public void removeFromBasket(int index){
         basket.remove(index);
     }
 
@@ -74,14 +82,6 @@ public class Customer {
 
     public int numOfItems(){
         return basket.numOfItems();
-    }
-
-    public Product getItem(int index){
-        return basket.getItem(index);
-    }
-
-    public HashMap<PaymentMethod, Double> getCards(){
-        return this.wallet;
     }
 
     public void receiveRefund(Double value, PaymentMethod card){

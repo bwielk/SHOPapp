@@ -1,6 +1,8 @@
 package shop;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Basket {
 
@@ -32,8 +34,11 @@ public class Basket {
         basket.remove(index);
     }
 
-    public Product getItem(int index){
-        return basket.get(index);
+    public Product getItemById(String id){
+        List<Product> results = basket.stream()
+                .filter(product -> product.getName() == id)
+                .collect(Collectors.toList());
+        return results.get(0);
     }
 
     public Double getTotalPrice(){
