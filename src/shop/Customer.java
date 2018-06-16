@@ -13,14 +13,15 @@ public class Customer {
     private HashMap<PaymentMethod, Double> wallet;
 
     public Customer(String email, String phoneNumber) {
-        String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+        checkTheEmailAddress(email);
+        checkThePhoneNumber(phoneNumber);
+        this.basket = new Basket();
+        this.transactions = new LinkedList<Transaction>();
+        this.wallet = new HashMap<PaymentMethod, Double >();
+    }
+
+    private void checkThePhoneNumber(String phoneNumber){
         String phoneRegex = "^\\s*0\\s*[1-9]{3}\\s*\\d{3}\\s*(\\d{4}|\\d{2}\\s*\\d{2})\\s*$";
-        if(email.matches(emailRegex)){
-            this.email = email;
-        }else{
-            throw new IllegalArgumentException("Invalid date format. " +
-                                                    "\nThe email format should be like this: name@domain.com");
-        }
         phoneNumber = phoneNumber.replaceAll(" ", "");
         if(!phoneNumber.startsWith("0") && phoneNumber.length() == 10){
             phoneNumber = "0" + phoneNumber;
@@ -29,11 +30,18 @@ public class Customer {
             this.phoneNumber = phoneNumber;
         }else{
             throw new IllegalArgumentException("Invalid phone number format. " +
-                                                    "\nThe phone number format should be like this: 09876543322");
+                    "\nThe phone number format should be like this: 09876543322");
         }
-        this.basket = new Basket();
-        this.transactions = new LinkedList<Transaction>();
-        this.wallet = new HashMap<PaymentMethod, Double >();
+    }
+
+    private void checkTheEmailAddress(String email){
+        String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+        if(email.matches(emailRegex)){
+            this.email = email;
+        }else{
+            throw new IllegalArgumentException("Invalid date format. " +
+                    "\nThe email format should be like this: name@domain.com");
+        }
     }
 
     public String getEmail(){

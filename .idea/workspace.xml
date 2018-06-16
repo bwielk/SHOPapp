@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7dcd48c-5a83-45d2-88f7-8e1084ca4be7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/shop/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shop/Basket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shop/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shop/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/shop/CustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/shop/CustomerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/shop/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+            <state relative-caret-position="153">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1486#1487#0" expanded="true" />
@@ -68,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CustomerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/shop/CustomerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+            <state relative-caret-position="156">
+              <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -173,8 +171,8 @@
         <option value="$PROJECT_DIR$/tests/shop/ShopTest.java" />
         <option value="$PROJECT_DIR$/tests/shop/RefundTest.java" />
         <option value="$PROJECT_DIR$/src/shop/Basket.java" />
-        <option value="$PROJECT_DIR$/src/shop/Customer.java" />
         <option value="$PROJECT_DIR$/tests/shop/CustomerTest.java" />
+        <option value="$PROJECT_DIR$/src/shop/Customer.java" />
       </list>
     </option>
   </component>
@@ -365,12 +363,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CustomerTest - 2018.06.16 at 22h 06m 14s.xml">
-      <configuration name="CustomerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerTest - 2018.06.16 at 22h 07m 28s.xml">
-      <configuration name="CustomerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CustomerTest - 2018.06.16 at 22h 09m 09s.xml">
       <configuration name="CustomerTest" configurationId="JUnit" />
     </history-entry>
@@ -395,6 +387,12 @@
     <history-entry file="CustomerTest - 2018.06.16 at 22h 53m 44s.xml">
       <configuration name="CustomerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CustomerTest - 2018.06.16 at 22h 55m 27s.xml">
+      <configuration name="CustomerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerTest - 2018.06.16 at 22h 56m 27s.xml">
+      <configuration name="CustomerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -402,13 +400,13 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32933104" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32933104" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" weight="0.32933104" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.32933104" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.32933104" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -568,10 +566,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/shop/CustomerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/shop/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+        <state relative-caret-position="153">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1486#1487#0" expanded="true" />
@@ -595,13 +600,6 @@
             <element signature="e#2189#2190#0" expanded="true" />
             <element signature="e#2231#2232#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/shop/CustomerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
         </state>
       </provider>
     </entry>
