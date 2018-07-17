@@ -1,15 +1,18 @@
 package shop;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Basket {
 
-    public ArrayList<Product> basket;
+    public List<Product> basket;
 
     public Basket(){
-        basket = new ArrayList<Product>();
+        basket = new LinkedList<Product>();
+    }
+
+    public List getBasket(){
+        return this.basket;
     }
 
     public int numOfItems(){
@@ -30,8 +33,8 @@ public class Basket {
         basket.clear();
     }
 
-    public void remove(int index){
-        basket.remove(index);
+    public void removeByProductID(String productID){
+        basket.removeIf(item -> getItemById(productID).getProductID().equals(productID));
     }
 
     public Product getItemById(String id){
@@ -59,4 +62,16 @@ public class Basket {
             }
         return array;
     }
- }
+
+    @Override
+    public String toString() {
+       StringBuffer textToPrint = new StringBuffer();
+       textToPrint.append("\n\n ---  BASKET REPORT ---");
+       for(Product product : basket){
+           textToPrint.append("\nINDEX = " + basket.indexOf(product) +
+                            "\n ; ID = " + product.getProductID() +
+                            "\n ; PRICE = " + product.getPrice());
+       }
+       return textToPrint.toString();
+    }
+}

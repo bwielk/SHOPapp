@@ -31,8 +31,8 @@ public class CustomerTest {
 
     @Test
     public void customerHasEmailAndPhoneNumber(){
-        assertEquals("email@email.com", customer.getEmail().getEmailAddress());
-        assertEquals("07952221123", customer.getPhoneNumber().getFullPhoneNumber());
+        assertEquals("email@email.com", customer.getEmail());
+        assertEquals("07952221123", customer.getPhoneNumber());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -60,15 +60,15 @@ public class CustomerTest {
     @Test
     public void customerIsCreatedWithAPhoneNumberContainingSpaces(){
         Customer newCustomer = new Customer("no_name@gmail.com", "0 123 123 11 12");
-        assertEquals("01231231112", newCustomer.getPhoneNumber().getFullPhoneNumber());
+        assertEquals("01231231112", newCustomer.getPhoneNumber());
     }
 
     @Test
     public void customerIsCreatedIfThePhoneNumberContains10DigitsWithout0AtTheBeginning(){
         Customer newCustomer1 = new Customer("no_name@gmail.com", "9871234455");
         Customer newCustomer2 = new Customer("no_name@gmail.com", "0 987 123 44 55");
-        assertEquals("09871234455", newCustomer1.getPhoneNumber().getFullPhoneNumber());
-        assertEquals("09871234455", newCustomer2.getPhoneNumber().getFullPhoneNumber());
+        assertEquals("09871234455", newCustomer1.getPhoneNumber());
+        assertEquals("09871234455", newCustomer2.getPhoneNumber());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -94,20 +94,20 @@ public class CustomerTest {
     }
 
     @Test
-    public void canDeleteAnItem() {
+    public void canDeleteAnItemByItemID_1() {
         customer.addItem(product);
         customer.addItem(product2);
-        customer.removeFromBasket(1);
+        customer.removeFromBasketByProductID(product2.getProductID());
         Product example = customer.getBasket().getItemById(product.getProductID());
         assertEquals(30.00, example.getPrice(), 0.1);
     }
 
     @Test
-    public void canDeleteAnItem2() {
+    public void canRemoveAnItemByItemID_2() {
         customer.addItem(product);
         customer.addItem(product2);
         customer.addItem(product3);
-        customer.removeFromBasket(0);
+        customer.removeFromBasketByProductID(product.getProductID());
         Product example1 = customer.getBasket().getItemById(product3.getProductID());
         assertEquals(10.00, example1.getPrice(), 0.1);
     }

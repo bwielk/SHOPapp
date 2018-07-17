@@ -20,24 +20,28 @@ public class Customer {
         this.wallet = new HashMap<PaymentMethod, Double>();
     }
 
-    public Email getEmail(){
-        return email;
+    public String getEmail(){
+        return email.getEmailAddress();
     }
 
-    public PhoneNumber getPhoneNumber(){
-        return phoneNumber;
+    public String getPhoneNumber(){
+        return phoneNumber.getFullPhoneNumber();
     }
 
     public Basket getBasket(){
         return basket;
     }
 
-    public HashMap<PaymentMethod, Double> getCards(){
+    public HashMap getCards(){
         return this.wallet;
     }
 
-    public void addItem(Product product){
-        basket.add(product);
+    public boolean addItem(Product product){
+        if(product != null) {
+            basket.getBasket().add(product);
+            return true;
+        }
+        return false;
     }
 
     public int numOfTransactions(){
@@ -56,8 +60,12 @@ public class Customer {
         }
     }
 
-    public void removeFromBasket(int index){
-        basket.remove(index);
+    public boolean removeFromBasketByProductID(String productID){
+        if(productID != null){
+            basket.removeByProductID(productID);
+            return true;
+        };
+        return false;
     }
 
     public void emptyBasket(){

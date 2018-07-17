@@ -45,14 +45,14 @@ public class BasketTest {
 
     @Test
     public void canGetTotalPriceAfterNumerousShoppingActions(){
-        basket.add(product);
-        basket.add(product2);
-        basket.add(product3);
-        basket.remove(2);
-        basket.add(product2);
-        basket.remove(1);
-        basket.add(product);
+        basket.add(product);//30
+        basket.add(product2);//25
+        basket.add(product3);//45
+        basket.removeByProductID(product3.getProductID());
+        basket.add(product2);//25
+        basket.removeByProductID(product2.getProductID());
+        basket.add(product);//30
+        System.out.println(basket.toString());
         assertEquals(85.00, basket.getTotalPrice(), 0.1);
-
     }
 }
