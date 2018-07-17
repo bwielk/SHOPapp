@@ -16,7 +16,7 @@ public class ProductTest {
 
     @Test
     public void canGetName(){
-        assertEquals("9999", product.getName());
+        assertEquals("9999", product.getProductID());
     }
 
     @Test

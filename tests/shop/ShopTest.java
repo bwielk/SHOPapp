@@ -82,7 +82,7 @@ public class ShopTest{
         shop.sell(product, 5);
         shop.sell(product2, 1);
         shop.acceptRefund(customer, product, card1);
-        assertEquals("Total sales value: �110.0\nTotal refunds value: �20.0\nTotal transaction value: �130.0", shop.printReport());
+        assertEquals("Total sales value: £110.0\nTotal refunds value: £20.0\nTotal transaction value: £130.0", shop.printReport());
     }
 
 

@@ -6,49 +6,25 @@ import java.util.*;
 
 public class Customer {
 
-    private String email;
-    private String phoneNumber;
+    private Email email;
+    private PhoneNumber phoneNumber;
     private Basket basket;
     private List<Transaction> transactions;
     private HashMap<PaymentMethod, Double> wallet;
 
     public Customer(String email, String phoneNumber) {
-        checkTheEmailAddress(email);
-        checkThePhoneNumber(phoneNumber);
+        this.email = new Email(email);
+        this.phoneNumber = new PhoneNumber(phoneNumber);
         this.basket = new Basket();
         this.transactions = new LinkedList<Transaction>();
-        this.wallet = new HashMap<PaymentMethod, Double >();
+        this.wallet = new HashMap<PaymentMethod, Double>();
     }
 
-    private void checkThePhoneNumber(String phoneNumber){
-        String phoneRegex = "^\\s*0\\s*[1-9]{3}\\s*\\d{3}\\s*(\\d{4}|\\d{2}\\s*\\d{2})\\s*$";
-        phoneNumber = phoneNumber.replaceAll(" ", "");
-        if(!phoneNumber.startsWith("0") && phoneNumber.length() == 10){
-            phoneNumber = "0" + phoneNumber;
-        }
-        if(phoneNumber.matches(phoneRegex)){
-            this.phoneNumber = phoneNumber;
-        }else{
-            throw new IllegalArgumentException("Invalid phone number format. " +
-                    "\nThe phone number format should be like this: 09876543322");
-        }
-    }
-
-    private void checkTheEmailAddress(String email){
-        String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
-        if(email.matches(emailRegex)){
-            this.email = email;
-        }else{
-            throw new IllegalArgumentException("Invalid date format. " +
-                    "\nThe email format should be like this: name@domain.com");
-        }
-    }
-
-    public String getEmail(){
+    public Email getEmail(){
         return email;
     }
 
-    public String getPhoneNumber(){
+    public PhoneNumber getPhoneNumber(){
         return phoneNumber;
     }
 

@@ -39,7 +39,7 @@ public class TransactionTest{
     @Test
     public void canGetProductByName(){
         transaction1.create(card1, basket, shop);
-        Product item = transaction1.getItemByName("1111");
+        Product item = transaction1.getItemById("1111");
         assertEquals(20.00, item.getPrice(), 0.1);
     }
 

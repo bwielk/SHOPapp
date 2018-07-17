@@ -31,8 +31,8 @@ public class CustomerTest {
 
     @Test
     public void customerHasEmailAndPhoneNumber(){
-        assertEquals("email@email.com", customer.getEmail());
-        assertEquals("07952221123", customer.getPhoneNumber());
+        assertEquals("email@email.com", customer.getEmail().getEmailAddress());
+        assertEquals("07952221123", customer.getPhoneNumber().getFullPhoneNumber());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -60,15 +60,15 @@ public class CustomerTest {
     @Test
     public void customerIsCreatedWithAPhoneNumberContainingSpaces(){
         Customer newCustomer = new Customer("no_name@gmail.com", "0 123 123 11 12");
-        assertEquals("01231231112", newCustomer.getPhoneNumber());
+        assertEquals("01231231112", newCustomer.getPhoneNumber().getFullPhoneNumber());
     }
 
     @Test
     public void customerIsCreatedIfThePhoneNumberContains10DigitsWithout0AtTheBeginning(){
         Customer newCustomer1 = new Customer("no_name@gmail.com", "9871234455");
         Customer newCustomer2 = new Customer("no_name@gmail.com", "0 987 123 44 55");
-        assertEquals("09871234455", newCustomer1.getPhoneNumber());
-        assertEquals("09871234455", newCustomer2.getPhoneNumber());
+        assertEquals("09871234455", newCustomer1.getPhoneNumber().getFullPhoneNumber());
+        assertEquals("09871234455", newCustomer2.getPhoneNumber().getFullPhoneNumber());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -98,7 +98,7 @@ public class CustomerTest {
         customer.addItem(product);
         customer.addItem(product2);
         customer.removeFromBasket(1);
-        Product example = customer.getBasket().getItemById(product.getName());
+        Product example = customer.getBasket().getItemById(product.getProductID());
         assertEquals(30.00, example.getPrice(), 0.1);
     }
 
@@ -108,7 +108,7 @@ public class CustomerTest {
         customer.addItem(product2);
         customer.addItem(product3);
         customer.removeFromBasket(0);
-        Product example1 = customer.getBasket().getItemById(product3.getName());
+        Product example1 = customer.getBasket().getItemById(product3.getProductID());
         assertEquals(10.00, example1.getPrice(), 0.1);
     }
 

@@ -64,9 +64,9 @@ public class Shop {
 
     @Override
     public String toString(){
-        return  "Total sales value: £" + getIncome() +
-                "\nTotal refunds value: £" + refund +
-                "\nTotal transaction value: £" + transaction +"";
+        return  "Total sales value: ?" + getIncome() +
+                "\nTotal refunds value: ?" + refund +
+                "\nTotal transaction value: ?" + transaction +"";
     }
 
     public String printReport(){

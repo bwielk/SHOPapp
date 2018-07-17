@@ -16,10 +16,10 @@ public class Transaction {
         this.shop = new Shop("Dior");
     }
 
-    public Product getItemByName(String name) {
+    public Product getItemById(String id) {
         Product productFound = null;
         for (Product product : products) {
-            if (product.getName() == name) {
+            if (product.getProductID() == id) {
                 productFound = product;
             } else {
                 System.out.println("No item found");

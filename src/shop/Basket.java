@@ -36,7 +36,7 @@ public class Basket {
 
     public Product getItemById(String id){
         List<Product> results = basket.stream()
-                .filter(product -> product.getName() == id)
+                .filter(product -> product.getProductID() == id)
                 .collect(Collectors.toList());
         return results.get(0);
     }
