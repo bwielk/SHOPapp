@@ -34,7 +34,13 @@ public class Basket {
     }
 
     public void removeByProductID(String productID){
-        basket.removeIf(item -> getItemById(productID).getProductID().equals(productID));
+        for(Product product : basket){
+            if(product.getProductID().equals(productID)){
+                basket.remove(basket.indexOf(product));
+                product.setStock(product.getStock() + 1);
+                break;
+            }
+        }
     }
 
     public Product getItemById(String id){

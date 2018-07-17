@@ -55,4 +55,18 @@ public class BasketTest {
         System.out.println(basket.toString());
         assertEquals(85.00, basket.getTotalPrice(), 0.1);
     }
+
+    @Test
+    public void onceItemIsRemovedFromBasketItsStockGetsUpdated(){
+        basket.add(product2);
+        basket.add(product2);
+        basket.add(product2);
+        basket.add(product);
+        assertEquals(2, product2.getStock());
+        assertEquals(1, product.getStock());
+        basket.removeByProductID(product2.getProductID());
+        assertEquals(3, product2.getStock());
+        basket.removeByProductID(product2.getProductID());
+        assertEquals(4, product2.getStock());
+    }
 }
