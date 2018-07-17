@@ -77,7 +77,7 @@ public class ShopTest{
         assertEquals(80.00, shop.getIncome(), 0.1);
     }
 
-    @Test
+    //@Test
     public void shopCanGenerateDailyReport(){
         shop.sell(product, 5);
         shop.sell(product2, 1);
