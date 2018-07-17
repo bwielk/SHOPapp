@@ -9,7 +9,6 @@ public class EmailTest {
 
     private Email email1;
     private Email email2;
-    private Email email3;
 
     @Before
     public void before(){
@@ -22,9 +21,12 @@ public class EmailTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void theEmailThrowsExceptionWhenWrongEmailFormat() throws IllegalArgumentException{
-        email2 = new Email("manchester1992@abc.123");
-        email2 = new Email("london@abc@abc.co.uk");
-        assertEquals(NullPointerException.class, email2.getEmailAddress().getClass());
+    public void theEmailThrowsExceptionWhenWrongEmailFormat1() throws IllegalArgumentException{
+        Email emailFail = new Email("manchester1992@abc.123");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void theEmailThrowsExceptionWhenWrongEmailFormat2() throws IllegalArgumentException{
+        Email emailFail2 = new Email("london@abc@abc.co.uk");
     }
 }
