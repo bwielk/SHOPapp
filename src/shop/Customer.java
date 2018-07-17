@@ -37,7 +37,7 @@ public class Customer {
     }
 
     public boolean addItem(Product product){
-        if(product != null) {
+        if(product != null && basket.canCustomerAddProductToBasket(product)) {
             basket.getBasket().add(product);
             return true;
         }
@@ -69,7 +69,7 @@ public class Customer {
     }
 
     public void emptyBasket(){
-        basket.empty();
+        basket.getBasket().clear();
     }
 
     public int numOfItems(){

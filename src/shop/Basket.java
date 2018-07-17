@@ -19,14 +19,12 @@ public class Basket {
         return basket.size();
     }
 
-    public String add(Product product){
+    public boolean canCustomerAddProductToBasket(Product product){
         if(product.getStock()<1){
-            return "Not enough pieces in stock!";
-        }else {
-            basket.add(product);
-            product.setStock(product.getStock()-1);
-            return "Item has been added";
+            return false;
         }
+        product.setStock(product.getStock()-1);
+        return true;
     }
 
     public void empty(){
@@ -56,17 +54,6 @@ public class Basket {
             total += product.getPrice();
         }
         return total;
-    }
-
-    public ArrayList<Product> prepForTransaction(){
-        ArrayList<Product> array = new ArrayList<Product>();
-        int basketSize = basket.size();
-
-        for(int i = 0; i < basketSize; i += 1) {
-            Product product = basket.remove(0);
-            array.add(product);
-            }
-        return array;
     }
 
     @Override

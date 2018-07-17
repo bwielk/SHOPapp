@@ -30,7 +30,7 @@ public class Transaction {
 
     public void create(PaymentMethod card, Basket basket, Shop shop){
         paymentType.put("type", card);
-        products = basket.prepForTransaction();
+        //products = basket.prepForTransaction();
         this.shop = shop;
     }
 

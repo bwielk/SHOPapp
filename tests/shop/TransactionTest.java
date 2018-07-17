@@ -30,10 +30,10 @@ public class TransactionTest{
         basket = new Basket();
         product1 = new Product("1111", 20.00, 3);
         product2 = new Product("2222", 30.00, 2);
-        basket.add(product1);
-        basket.add(product1);
-        basket.add(product1);
-        basket.add(product2);
+        customer.addItem(product1);
+        customer.addItem(product1);
+        customer.addItem(product1);
+        customer.addItem(product2);
         transaction1 = new Transaction();
     }
     @Test
