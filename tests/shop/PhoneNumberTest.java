@@ -26,18 +26,17 @@ public class PhoneNumberTest {
    }
 
    @Test(expected = IllegalArgumentException.class)
-    public void phoneNumberIsNotCreatedIfPhoneNumberIsInvalid1() throws IllegalArgumentException{
-       PhoneNumber phoneNumberNotWorking = new PhoneNumber("1223451123");
+    public void phoneNumberIsNotCreatedIfPhoneNumberIsInvalid1(){
+       PhoneNumber phoneNumberNotWorking = new PhoneNumber("211223451123");
    }
 
     @Test(expected = IllegalArgumentException.class)
-    public void phoneNumberIsNotCreatedIfPhoneNumberIsInvalid2() throws IllegalArgumentException{
-       PhoneNumber phoneNumberNotWorking = new PhoneNumber("122 112 112 1");
+    public void phoneNumberIsNotCreatedIfPhoneNumberIsInvalid2(){
+       PhoneNumber phoneNumberNotWorking = new PhoneNumber("00 122 112 1121");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void phoneNumberIsNotCreatedIfPhoneNumberIsInvalid3() throws IllegalArgumentException{
+    public void phoneNumberIsNotCreatedIfPhoneNumberIsInvalid3(){
         PhoneNumber phoneNumberNotWorking = new PhoneNumber("0999112321");
     }
-
 }

@@ -22,11 +22,11 @@ public class EmailTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void theEmailThrowsExceptionWhenWrongEmailFormat1() throws IllegalArgumentException{
-        Email emailFail = new Email("manchester1992@abc.123");
+        new Email("manchester1992@abc.@123");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void theEmailThrowsExceptionWhenWrongEmailFormat2() throws IllegalArgumentException{
-        Email emailFail2 = new Email("london@abc@abc.co.uk");
+        new Email("london@abc@abc.co.uk");
     }
 }

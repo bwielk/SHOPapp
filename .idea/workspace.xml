@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7dcd48c-5a83-45d2-88f7-8e1084ca4be7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/shop/PhoneNumberTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/SHOPapp/shop/EmailTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/SHOPapp/shop/EmailTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SHOPapp/shop/PhoneNumberTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/SHOPapp/shop/PhoneNumberTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/shop/EmailTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/shop/EmailTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/shop/PhoneNumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/shop/PhoneNumberTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,16 +33,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmailTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EmailTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/shop/EmailTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+            <state relative-caret-position="182">
+              <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
               <folding>
                 <element signature="e#240#241#0" expanded="true" />
                 <element signature="e#299#300#0" expanded="true" />
                 <element signature="e#326#327#0" expanded="true" />
                 <element signature="e#356#357#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhoneNumberTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/shop/PhoneNumberTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="34" column="63" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#180#181#0" expanded="true" />
+                <element signature="e#246#247#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,25 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhoneNumberTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/shop/PhoneNumberTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#180#181#0" expanded="true" />
-                <element signature="e#246#247#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CustomerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/shop/CustomerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
-              <caret line="49" column="49" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="49" selection-end-column="49" />
+              <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -123,15 +124,6 @@
               <folding>
                 <element signature="method#shopCanCheckIncome#0;class#ShopTest#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shop/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -169,8 +161,8 @@
         <option value="$PROJECT_DIR$/src/shop/Shop.java" />
         <option value="$PROJECT_DIR$/tests/shop/ShopTest.java" />
         <option value="$PROJECT_DIR$/src/shop/PhoneNumber.java" />
-        <option value="$PROJECT_DIR$/tests/shop/PhoneNumberTest.java" />
         <option value="$PROJECT_DIR$/tests/shop/EmailTest.java" />
+        <option value="$PROJECT_DIR$/tests/shop/PhoneNumberTest.java" />
       </list>
     </option>
   </component>
@@ -371,34 +363,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_SHOPapp - 2018.07.17 at 19h 56m 09s.xml">
-      <configuration name="All in SHOPapp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SHOPapp - 2018.07.17 at 19h 58m 03s.xml">
-      <configuration name="All in SHOPapp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SHOPapp - 2018.07.17 at 19h 58m 25s.xml">
-      <configuration name="All in SHOPapp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 00m 26s.xml">
-      <configuration name="All in SHOPapp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 01m 47s.xml">
-      <configuration name="All in SHOPapp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 04m 42s.xml">
-      <configuration name="All in SHOPapp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 05m 58s.xml">
-      <configuration name="All in SHOPapp" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 07m 29s.xml">
-      <configuration name="All in SHOPapp" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 08m 12s.xml">
       <configuration name="All in SHOPapp" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 09m 21s.xml">
+      <configuration name="All in SHOPapp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 09m 54s.xml">
+      <configuration name="All in SHOPapp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 13m 46s.xml">
+      <configuration name="All in SHOPapp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 14m 19s.xml">
+      <configuration name="All in SHOPapp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 18m 38s.xml">
+      <configuration name="All in SHOPapp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 30m 54s.xml">
+      <configuration name="All in SHOPapp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 31m 38s.xml">
+      <configuration name="All in SHOPapp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 32m 24s.xml">
+      <configuration name="All in SHOPapp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_SHOPapp - 2018.07.17 at 20h 32m 54s.xml">
       <configuration name="All in SHOPapp" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -414,12 +406,12 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" weight="0.32933104" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.32933104" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.32933104" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32933104" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -443,13 +435,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/shop/DebitCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shop/Basket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -844,30 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/shop/BasketTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/shop/CustomerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="49" column="49" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="49" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/shop/PaymentTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shop/PaymentCard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -888,27 +849,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/shop/PhoneNumberTest.java">
+    <entry file="jar://$PROJECT_DIR$/lib/junit-4.11.jar!/org/junit/internal/runners/statements/RunBefores.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        <state relative-caret-position="221">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/shop/CustomerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/shop/PaymentTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/shop/BasketTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#180#181#0" expanded="true" />
-            <element signature="e#246#247#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/shop/EmailTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        <state relative-caret-position="182">
+          <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
           <folding>
             <element signature="e#240#241#0" expanded="true" />
             <element signature="e#299#300#0" expanded="true" />
             <element signature="e#326#327#0" expanded="true" />
             <element signature="e#356#357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/shop/PhoneNumberTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="34" column="63" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#180#181#0" expanded="true" />
+            <element signature="e#246#247#0" expanded="true" />
           </folding>
         </state>
       </provider>
