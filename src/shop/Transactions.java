@@ -27,6 +27,15 @@ public class Transactions {
         return false;
     }
 
+    public int numOfTransactions(){
+        return transactions.size();
+    }
+
+
+    public Transaction getTransaction(int index){
+        return transactions.get(index);
+    }
+
     private class TransactionIDGenerator {
 
         private String run(){

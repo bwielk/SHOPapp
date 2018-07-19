@@ -8,14 +8,15 @@ public class Customer {
     private PhoneNumber phoneNumber;
     private Basket basket;
     private Transactions transactions;
-    private HashMap<PaymentMethod, Double> wallet;
+    private CustomerWallet wallet;
 
     public Customer(String email, String phoneNumber) {
+        String id = new Date().toString();
         this.email = new Email(email);
         this.phoneNumber = new PhoneNumber(phoneNumber);
         this.basket = new Basket();
         this.transactions = new Transactions();
-        this.wallet = new HashMap<PaymentMethod, Double>();
+        this.wallet = new CustomerWallet(id);
     }
 
     public String getEmail(){
@@ -30,7 +31,7 @@ public class Customer {
         return basket;
     }
 
-    public HashMap getCards(){
+    public CustomerWallet getWallet(){
         return this.wallet;
     }
 
@@ -40,22 +41,6 @@ public class Customer {
             return true;
         }
         return false;
-    }
-
-    public int numOfTransactions(){
-        return transactions.getTransactions().size();
-    }
-
-    public Transaction getTransaction(int index){
-        return (Transaction) transactions.getTransactions().get(index);
-    }
-
-    public void setFunds(PaymentMethod card, Double funds){
-        if(funds > 0) {
-            wallet.put(card, funds);
-        }else{
-            throw new IllegalArgumentException("Entered funds should be greater than 0");
-        }
     }
 
     public boolean removeFromBasketByProductID(String productID){
@@ -74,35 +59,15 @@ public class Customer {
         return basket.numOfItems();
     }
 
-    public void receiveRefund(Double value, PaymentMethod card){
-        Double currentFunds = wallet.get(card);
-        Double updatedFunds = currentFunds + value;
-        wallet.put(card, updatedFunds);
-    }
-
-    public Double getFunds(PaymentMethod card){
-        Double funds = wallet.get(card);
-        return funds;
-    }
-
-    public Double getTotalFunds(){
-        Double total = 0.0;
-        HashMap<PaymentMethod, Double> cards = getCards();
-        for( Double funds : cards.values()){
-            total += funds;
-        }
-        return total;
-    }
-
     public String pay(PaymentMethod card, Shop shop) {
-        if (getFunds(card) < basket.getTotalPrice()) {
+        if (wallet.getFunds(card) < basket.getTotalPrice()) {
             return "Not enough funds on your card! Try again";
         } else {
             Payment payment = new Payment();
             payment.create(basket.getTotalPrice(), shop);
             payment.sendPayment();
-            Double fundsLeft = getFunds(card) - basket.getTotalPrice();
-            setFunds(card, fundsLeft);
+            Double fundsLeft = wallet.getFunds(card) - basket.getTotalPrice();
+            wallet.setFunds(card, fundsLeft);
             Transaction transaction = new Transaction(PaymentMethodType.CASH);
             transaction.create(card, basket, shop);
             basket.getBasket().clear();
