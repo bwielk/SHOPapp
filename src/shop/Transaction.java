@@ -5,13 +5,13 @@ import java.util.HashMap;
 
 public class Transaction {
 
-    HashMap<String, PaymentMethod> paymentType;
+    PaymentMethodType paymentMethodType;
     ArrayList<Product> products;
     Shop shop;
 
 
-    public Transaction() {
-        this.paymentType = new HashMap<String, PaymentMethod>();
+    public Transaction(PaymentMethodType paymentMethod) {
+        this.paymentMethodType = paymentMethod;
         this.products = new ArrayList<Product>();
         this.shop = new Shop("Dior");
     }
@@ -29,14 +29,13 @@ public class Transaction {
     }
 
     public void create(PaymentMethod card, Basket basket, Shop shop){
-        paymentType.put("type", card);
         //products = basket.prepForTransaction();
         this.shop = shop;
     }
 
-    public PaymentMethod getPayMethod(){
-        return paymentType.get("type");
-    }
+//    public PaymentMethod getPayMethod(){
+//        //return paymentType.get("type");
+//    }
 
     public ArrayList<Product> getItems(){
         return this.products;

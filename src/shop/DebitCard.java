@@ -4,6 +4,7 @@ public class DebitCard extends PaymentCard implements PaymentMethod{
 
     public DebitCard(){
         this.funds = 0.0;
+        paymentType = PaymentMethodType.DEBIT_CARD;
     }
 
     public Double getFunds(){

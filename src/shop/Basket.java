@@ -27,18 +27,12 @@ public class Basket {
         return true;
     }
 
-    public void empty(){
-        basket.clear();
-    }
-
-    public void removeByProductID(String productID){
+    public Double getTotalPrice(){
+        Double total = 0.0;
         for(Product product : basket){
-            if(product.getProductID().equals(productID)){
-                basket.remove(basket.indexOf(product));
-                product.setStock(product.getStock() + 1);
-                break;
-            }
+            total += product.getPrice();
         }
+        return total;
     }
 
     public Product getItemById(String id){
@@ -48,12 +42,14 @@ public class Basket {
         return results.get(0);
     }
 
-    public Double getTotalPrice(){
-        Double total = 0.0;
+    public void removeItemByID(String productID){
         for(Product product : basket){
-            total += product.getPrice();
+            if(product.getProductID().equals(productID)){
+                basket.remove(basket.indexOf(product));
+                product.setStock(product.getStock() + 1);
+                break;
+            }
         }
-        return total;
     }
 
     @Override
