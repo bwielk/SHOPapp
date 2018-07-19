@@ -35,6 +35,10 @@ public class Customer {
         return this.wallet;
     }
 
+    public Transactions getTransactions() {
+        return this.transactions;
+    }
+
     public boolean addItem(Product product){
         if(product != null && basket.canCustomerAddProductToBasket(product)) {
             basket.getBasket().add(product);

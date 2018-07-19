@@ -17,8 +17,8 @@ public class RefundTest {
         card1 = new DebitCard();
         card2 = new CreditCard();
         customer = new Customer("customer@gmail.com", "02231123421");
-        customer.setFunds(card1, 100.00);
-        customer.setFunds(card2, 95.00);
+        customer.getWallet().setFunds(card1, 100.00);
+        customer.getWallet().setFunds(card2, 95.00);
         refundForm = new Refund();
     }
 
@@ -32,7 +32,7 @@ public class RefundTest {
     public void chosenCardCanBeSet(){
         refundForm.setCard(card1);
         PaymentMethod card = refundForm.getCard();
-        assertEquals(100.00, customer.getFunds(card), 0.1);
+        assertEquals(100.00, customer.getWallet().getFunds(card), 0.1);
     }
 
     @Test
@@ -45,6 +45,6 @@ public class RefundTest {
         public void canSendRefundToCustomer(){
         refundForm.create(100.00, card2);
         refundForm.sendRefund(customer);
-        assertEquals(195.00, customer.getFunds(card2), 0.1);
+        assertEquals(195.00, customer.getWallet().getFunds(card2), 0.1);
     }
 }

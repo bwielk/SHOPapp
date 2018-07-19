@@ -32,6 +32,6 @@ public class Refund {
     }
 
     public void sendRefund(Customer customer){
-        customer.receiveRefund(getValue(), getCard());
+        customer.getWallet().receiveRefund(getValue(), getCard());
     }
 }

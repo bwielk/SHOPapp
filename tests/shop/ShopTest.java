@@ -24,8 +24,8 @@ public class ShopTest{
         card1 = new DebitCard();
         card2 = new CreditCard();
         customer = new Customer("tony@gmail.com", "07823341123");
-        customer.setFunds(card1, 100.00);
-        customer.setFunds(card2, 120.00);
+        customer.getWallet().setFunds(card1, 100.00);
+        customer.getWallet().setFunds(card2, 120.00);
         payment1 = new Payment();
         payment2 = new Payment();
     }
@@ -87,6 +87,7 @@ public class ShopTest{
 
 
     @Test
+
     public void cannotSellAnItemIfNotEnoughItems(){
         assertEquals("Not enough products in stock", shop.sell(product, 11));
     }
@@ -94,7 +95,7 @@ public class ShopTest{
     @Test
     public void shopCanTransferRefunds(){
         shop.transferRefund(customer, 30.00, card1);
-        assertEquals(130.00, customer.getFunds(card1), 0.1);
+        assertEquals(130.00, customer.getWallet().getFunds(card1), 0.1);
     }
 
     @Test

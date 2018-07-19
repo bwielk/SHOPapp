@@ -25,8 +25,8 @@ public class TransactionTest{
         customer1 = new Customer("elza@gmail.com", "08772123344");
         card1 = new DebitCard();
         card2 = new CreditCard();
-        customer.setFunds(card1, 100.00);
-        customer1.setFunds(card2, 100.00);
+        customer.getWallet().setFunds(card1, 100.00);
+        customer1.getWallet().setFunds(card2, 100.00);
         basket = new Basket();
         product1 = new Product("1111", 20.00, 3);
         product2 = new Product("2222", 30.00, 2);

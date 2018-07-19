@@ -25,8 +25,8 @@ public class CustomerTest {
         product3 = new Product("3333", 10.00, 8);
         card1 = new CreditCard();
         card2 = new DebitCard();
-        customer.setFunds(card1, 130.00);
-        customer.setFunds(card2, 125.00);
+        customer.getWallet().setFunds(card1, 130.00);
+        customer.getWallet().setFunds(card2, 125.00);
     }
 
     @Test
@@ -114,25 +114,25 @@ public class CustomerTest {
 
     @Test
     public void canGetTotalFunds() {
-        Double total = customer.getTotalFunds();
+        Double total = customer.getWallet().getTotalFunds();
         assertEquals(255.00, total, 0.1);
     }
 
     @Test
     public void canGetFundsOfAPArticularCard() {
-        Double funds = customer.getFunds(card1);
+        Double funds = customer.getWallet().getFunds(card1);
         assertEquals(130.00, funds, 0.1);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void cannotSetTheFundsWithAmountLessThan0() throws IllegalArgumentException{
-        customer.setFunds(card1, -100.00);
+        customer.getWallet().setFunds(card1, -100.00);
     }
 
     @Test
     public void canChangeFunds() {
-        customer.setFunds(card1, 100.00);
-        assertEquals(100.00, customer.getFunds(card1), 0.1);
+        customer.getWallet().setFunds(card1, 100.00);
+        assertEquals(100.00, customer.getWallet().getFunds(card1), 0.1);
     }
 
     @Test
@@ -140,7 +140,7 @@ public class CustomerTest {
         customer.addItem(product);
         customer.addItem(product2);
         customer.pay(card1, shop);
-        assertEquals(75.00, customer.getFunds(card1), 0.1);
+        assertEquals(75.00, customer.getWallet().getFunds(card1), 0.1);
     }
 
     @Test
@@ -159,7 +159,7 @@ public class CustomerTest {
         customer.addItem(product);
         customer.addItem(product2);
         customer.pay(card1, shop);
-        assertEquals(2, customer.numOfTransactions());
+        assertEquals(2, customer.getTransactions().numOfTransactions());
     }
 
     @Test
@@ -173,10 +173,10 @@ public class CustomerTest {
         customer.addItem(product3);
         customer.addItem(product3);
         customer.pay(card2, shop);
-        assertEquals(3, customer.numOfTransactions());
-        assertEquals(60.00, customer.getTransaction(0).getTotal(), 0.1);
-        assertEquals(35.00, customer.getTransaction(1).getTotal(), 0.1);
-        assertEquals(20.00, customer.getTransaction(2).getTotal(), 0.1);
+        assertEquals(3, customer.getTransactions().numOfTransactions());
+        assertEquals(60.00, customer.getTransactions().getTransaction(0).getTotal(), 0.1);
+        assertEquals(35.00, customer.getTransactions().getTransaction(1).getTotal(), 0.1);
+        assertEquals(20.00, customer.getTransactions().getTransaction(2).getTotal(), 0.1);
     }
 
     @Test
@@ -192,8 +192,8 @@ public class CustomerTest {
         customer.getRefund(0,1, card1);//25
         customer.getRefund(1,0, card2);//30
         customer.getRefund(1,2, card1);//10
-        assertEquals(110.00, customer.getFunds(card1), 0.1);
-        assertEquals(135.00, customer.getFunds(card2), 0.1);
+        assertEquals(110.00, customer.getWallet().getFunds(card1), 0.1);
+        assertEquals(135.00, customer.getWallet().getFunds(card2), 0.1);
         assertEquals(0, customer.numOfItems());
         assertEquals(105.00, shop.getTransactionValue(), 0.1);
         assertEquals(95.00, shop.getRefundsValue(), 0.1);
