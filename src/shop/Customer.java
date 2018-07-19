@@ -42,13 +42,13 @@ public class Customer {
         return false;
     }
 
-//    public int numOfTransactions(){
-//        return transactions.size();
-//    }
-//
-//    public Transaction getTransaction(int index){
-//        return transactions.get(index);
-//    }
+    public int numOfTransactions(){
+        return transactions.getTransactions().size();
+    }
+
+    public Transaction getTransaction(int index){
+        return (Transaction) transactions.getTransactions().get(index);
+    }
 
     public void setFunds(PaymentMethod card, Double funds){
         if(funds > 0) {
@@ -94,33 +94,33 @@ public class Customer {
         return total;
     }
 
-//    public String pay(PaymentMethod card, Shop shop) {
-//        if (getFunds(card) < basket.getTotalPrice()) {
-//            return "Not enough funds on your card! Try again";
-//        } else {
-//            Payment payment = new Payment();
-//            payment.create(basket.getTotalPrice(), shop);
-//            payment.sendPayment();
-//            Double fundsLeft = getFunds(card) - basket.getTotalPrice();
-//            setFunds(card, fundsLeft);
-//            Transaction transaction = new Transaction();
-//            transaction.create(card, basket, shop);
-//            basket.getBasket().clear();
-//            transactions.add(transaction);
-//            return "Transaction complete!";
-//        }
-//    }
-//
-//    public String getRefund(int transactionIndexNum, int itemIndexNum, PaymentMethod card) {
-//        if (transactions.size() != 0) {
-//            Transaction transaction = transactions.get(transactionIndexNum);
-//            Shop shop = transaction.getShop();
-//            Product productToReturn = transaction.getItems().get(itemIndexNum);
-//            transaction.getItems().set(itemIndexNum, null);
-//            shop.acceptRefund(this, productToReturn, card);
-//            return "You have received a successful refund";
-//        } else {
-//            return "There is nothing to return!";
-//        }
-//    }
+    public String pay(PaymentMethod card, Shop shop) {
+        if (getFunds(card) < basket.getTotalPrice()) {
+            return "Not enough funds on your card! Try again";
+        } else {
+            Payment payment = new Payment();
+            payment.create(basket.getTotalPrice(), shop);
+            payment.sendPayment();
+            Double fundsLeft = getFunds(card) - basket.getTotalPrice();
+            setFunds(card, fundsLeft);
+            Transaction transaction = new Transaction(PaymentMethodType.CASH);
+            transaction.create(card, basket, shop);
+            basket.getBasket().clear();
+            transactions.addTransaction(transaction);
+            return "Transaction complete!";
+        }
+    }
+
+    public String getRefund(int transactionIndexNum, int itemIndexNum, PaymentMethod card) {
+        if (transactions.getTransactions().size() != 0) {
+            Transaction transaction = (Transaction) transactions.getTransactions().get(transactionIndexNum);
+            Shop shop = transaction.getShop();
+            Product productToReturn = transaction.getItems().get(itemIndexNum);
+            transaction.getItems().set(itemIndexNum, null);
+            shop.acceptRefund(this, productToReturn, card);
+            return "You have received a successful refund";
+        } else {
+            return "There is nothing to return!";
+        }
+    }
 }
